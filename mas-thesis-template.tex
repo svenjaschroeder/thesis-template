@@ -1,0 +1,84 @@
+%!TEX program = lualatex
+\documentclass[fallstudie,grey]{mas-thesis}				% Verfügbare Optionen:
+															% masterarbeit, bachelorarbeit, dissertation,
+															% masterprojekt, bachelorprojekt, seminararbeit,
+															% fallstudie, grey (für Graustufen)
+
+\author{Autorname}
+\title{Titel der Arbeit}
+\betreuer{Univ.-Prof.~Dipl.-Ing.~Dr.~Betreuer~Name}		% ~ statt Leerzeichen für schönere Abstände
+\gutachterA{Gutachter~A}
+\gutachterB{Gutachter~B}
+\studiengang{Angewandte Informatik - Network Engineering}
+\akademischergrad{Bachelor of Science}
+%\ort{Essen}
+\datum{\the\year}										% \today (ohne \the) ist auch eine Möglichkeit
+
+%%%%%%%%%%%%%% 
+%TODO:
+
+%\usepackage{array}
+
+
+%% load bibs
+%\addbibresource{bibliography/common.bib}
+%\addbibresource{bibliography/rfc-shorthands.bib}
+
+
+
+%\input{components/info}
+
+%\DeclareBibliographyCategory{ownpub}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+\maketitle
+\makelicensepageCCBYSA
+
+
+% \input{components/license.tex}
+% \input{components/toc.tex}
+% \input{components/indices.tex}
+% \input{components/quote.tex}
+% \input{components/abstract.tex}
+% \input{components/acknowledgments.tex}
+
+%\newpage
+%\listoftodos
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \cleardoublepage
+% \pagenumbering{arabic}
+
+% \subimport{chapters/01-intro/}{introduction}
+% \subimport{chapters/04-mobilenets/}{mobilenetworks}
+% \subimport{chapters/041-mobilenetsmeasuring/}{mobilenetworkevaluation}
+% \subimport{chapters/03-streaming/}{streaming}
+% \subimport{chapters/05-mobilestreaming/}{mobilestreaming}
+% \subimport{chapters/06-mobilestreamingmeasurements/}{measurements}
+% \subimport{chapters/99-conclusion/}{conclusion}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \input{components/vita.tex}
+
+% \addtocategory{ownpub}{metzger2012research, oechsner2009pushing,metzger2014lossmodel,raf2013sensorium, cs3516, metzger2014jcnc, rafetseder2011explyt, 6229739, metzger2011delivery, cs3518}
+% \nocite{oechsner2009pushing,metzger2014lossmodel,raf2013sensorium,cs3516} % temporary import of otherwise unreferences own publications
+
+
+% \defbibnote{ownpubdisclaimer}{Parts of the research conducted in this thesis is based on these already published publications. }
+% \printbibliography[title=Own Publications, category=ownpub, heading=bibintoc, prenote=ownpubdisclaimer]
+
+
+% %\chapter*{Own Publications}
+% %\addcontentsline{toc}{chapter}{Own Publications}%
+
+% %\printbibliography[category=ownpub]
+
+% \input{components/sourcecode.tex}
+% %\printbibliography[notkeyword=ownpub, heading=bibintoc]
+% \printbibliography[notcategory=ownpub, heading=bibintoc]
+\end{document}
