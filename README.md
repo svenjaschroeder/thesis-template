@@ -8,4 +8,9 @@ Die Optionen sind im Beispiel in der `.tex`-Datei erklärt.
 
 - TeX Live 2015 oder vergleichbar
 - TeX-Live-Pakete:
-	- `collection-luatex` für LuaLaTeX-Unterstützung
+	- Windows:
+		- `collection-luatex` für LuaLaTeX-Unterstützung
+	- Linux:
+		- `texlive-genericextra`
+		- `texlive-bibtexextra`
+		- `biber` (je nach Distribution schon in texlive-bibtexextra vorhanden)
