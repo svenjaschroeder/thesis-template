@@ -17,32 +17,67 @@
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% translations
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% German
+
+\newcommand{\@supervisor}{<Betreuername per \textbackslash supervisor setzen>}
+\newcommand{\@reviewerA}{<Gutachtername 1 per \textbackslash reviewerA setzen>}
+\newcommand{\@reviewerB}{<Gutachtername 2 per \textbackslash reviewerB setzen>}
+\newcommand{\@fieldofdissertation}{<Dissertationsgebiet per \textbackslash fieldofdissertation setzen>}
+\newcommand{\@degree}{<Angestrebten Grad per \textbackslash degree setzen>}
+\newcommand{\@location}{<Ort der Arbeit per \textbackslash location setzen>}
+\newcommand{\@degreecourse}{<Studiengang per \textbackslash degreecourse setzen>}
+\newcommand{\@dateofthesis}{\today}
+
+\newcommand{\@stringTitle}{Titel}
+\newcommand{\@stringAuthor}{Verfasser}
+\newcommand{\@stringDegree}{Angestrebter akademischer Grad}
+\newcommand{\@stringDegreeCourse}{Studiengang}
+\newcommand{\@stringSupervisor}{Betreuer}
+\newcommand{\@stringReviewer}{Gutachter}
+
+
+%% Set defaults for English language
+
+\DeclareOption{english}{
+	\renewcommand{\@supervisor}{<Set supervisor name with \textbackslash supervisor>}
+	\renewcommand{\@reviewerA}{<Set name of 1st supervisor with \textbackslash reviewerA>}
+	\renewcommand{\@reviewerB}{<Set name of 2nd supervisor with \textbackslash reviewerB>}
+	\renewcommand{\@fieldofdissertation}{<Set field of dissertation with \textbackslash fieldofdissertation>}
+	\renewcommand{\@degree}{<Set intended degree with \textbackslash degree>}
+	\renewcommand{\@location}{<Set location of thesis with \textbackslash location>}
+	\renewcommand{\@degreecourse}{<Set seeked major with \textbackslash degreecourse>}
+
+	\renewcommand{\@stringTitle}{Title}
+	\renewcommand{\@stringAuthor}{Author}
+	\renewcommand{\@stringDegree}{Seeked Major}
+	\renewcommand{\@stringDegreeCourse}{Major}
+	\renewcommand{\@stringSupervisor}{Supervisor}
+	\renewcommand{\@stringReviewer}{Reviewer}
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % commands
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\newcommand{\@betreuer}{<Betreuername per \textbackslash betreuer setzen>}
-\newcommand{\betreuer}[1]{\renewcommand\@betreuer{#1}}
+\newcommand{\supervisor}[1]{\renewcommand\@supervisor{#1}}
 
-\newcommand{\@gutachterA}{<Gutachtername 1 per \textbackslash gutachterA setzen>}
-\newcommand{\gutachterA}[1]{\renewcommand\@gutachterA{#1}}
+\newcommand{\reviewerA}[1]{\renewcommand\@reviewerA{#1}}
 
-\newcommand{\@gutachterB}{<Gutachtername 2 per \textbackslash gutachterB setzen>}
-\newcommand{\gutachterB}[1]{\renewcommand\@gutachterB{#1}}
+\newcommand{\reviewerB}[1]{\renewcommand\@reviewerB{#1}}
 
-\newcommand{\@dissertationsgebiet}{<Dissertationsgebiet per \textbackslash dissertationsgebiet setzen>}
-\newcommand{\dissertationsgebiet}[1]{\renewcommand\@dissertationsgebiet{#1}}
+\newcommand{\fieldofdissertation}[1]{\renewcommand\@fieldofdissertation{#1}}
 
-\newcommand{\@akademischergrad}{<Angestrebten Grad per \textbackslash akademischergrad setzen>}
-\newcommand{\akademischergrad}[1]{\renewcommand\@akademischergrad{#1}}
+\newcommand{\degree}[1]{\renewcommand\@degree{#1}}
 
-\newcommand{\@ort}{<Ort der Arbeit per \textbackslash ort setzen>}
-\newcommand{\ort}[1]{\renewcommand\@ort{#1}}
+\newcommand{\location}[1]{\renewcommand\@location{#1}}
 
-\newcommand{\@datum}{\today}
-\newcommand{\datum}[1]{\renewcommand\@datum{#1}}
+\newcommand{\dateofthesis}[1]{\renewcommand\@dateofthesis{#1}}
 
-\newcommand{\@studiengang}{<Studiengang per \textbackslash studiengang setzen>}
-\newcommand{\studiengang}[1]{\renewcommand\@studiengang{#1}}
+\newcommand{\degreecourse}[1]{\renewcommand\@degreecourse{#1}}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -55,12 +90,12 @@
 	\includegraphics[height=2cm]{graphics/mas-logo-cmyk.eps}
 }
 
-\newcommand{\@betreuergutachter}{
+\newcommand{\@supervisorreviewer}{
 	\begin{tabular}{lp{8cm}}%\hline
-		\small \@ort, \@datum & ~\newline\newline\newline~ \\ %\hline
-		\small Studiengang: & \small \@studiengang \\ %\hline
-		\small Betreuer: & \small \@betreuer \\ %\hline
-		%\small Gutachter: &  \small \@gutachterA \\
+		\small \@location, \@dateofthesis & ~\newline\newline\newline~ \\ %\hline
+		\small \@stringDegreeCourse: & \small \@degreecourse \\ %\hline
+		\small \@stringSupervisor: & \small \@supervisor \\ %\hline
+		%\small \@stringReviewer: &  \small \@gutachterA \\
 		%\small & \small \@gutachterB \\
 	\end{tabular}
 }
@@ -82,12 +117,12 @@
 	}
 }
 \DeclareOption{bachelorprojekt}{
-	\renewcommand{\@betreuergutachter}{
+	\renewcommand{\@supervisorreviewer}{
 		\begin{tabular}{lp{8cm}}%\hline
-			\small \@ort, \@datum & ~\newline\newline\newline~ \\ %\hline
-			\small Studiengang: & \small \@studiengang \\ %\hline
-			\small Betreuer: & \small \@betreuer \\ %\hline
-			%\small Gutachter: &  \small \@gutachterA \\
+			\small \@location, \@dateofthesis & ~\newline\newline\newline~ \\ %\hline
+			\small \@stringDegreeCourse: & \small \@degreecourse \\ %\hline
+			\small \@stringSupervisor: & \small \@supervisor \\ %\hline
+			%\small \@stringReviewer: &  \small \@gutachterA \\
 			%\small & \small \@gutachterB \\
 		\end{tabular}
 	}
@@ -96,12 +131,12 @@
 	\renewcommand{\@arbeitstyp}{Bachelorprojekt}
 }
 \DeclareOption{bachelorarbeit}{
-	\renewcommand{\@betreuergutachter}{
+	\renewcommand{\@supervisorreviewer}{
 		\begin{tabular}{lp{8cm}}%\hline
-			\small \@ort, \@datum & ~\newline\newline\newline~ \\ %\hline
-			\small Studiengang: & \small \@studiengang \\ %\hline
-			\small Betreuer: & \small \@betreuer \\ %\hline
-			\small Gutachter: &  \small \@gutachterA \\
+			\small \@location, \@dateofthesis & ~\newline\newline\newline~ \\ %\hline
+			\small \@stringDegreeCourse: & \small \@degreecourse \\ %\hline
+			\small \@stringSupervisor: & \small \@supervisor \\ %\hline
+			\small \@stringReviewer: &  \small \@gutachterA \\
 			\small & \small \@gutachterB \\
 		\end{tabular}
 	}
@@ -109,12 +144,12 @@
 	\renewcommand{\@arbeitstyp}{Bachelorarbeit}
 }
 \DeclareOption{masterprojekt}{
-	\renewcommand{\@betreuergutachter}{
+	\renewcommand{\@supervisorreviewer}{
 		\begin{tabular}{lp{8cm}}%\hline
-			\small \@ort, \@datum & ~\newline\newline\newline~ \\ %\hline
-			\small Studiengang: & \small \@studiengang \\ %\hline
-			\small Betreuer: & \small \@betreuer \\ %\hline
-			% \small Gutachter: &  \small \@gutachterA \\
+			\small \@location, \@dateofthesis & ~\newline\newline\newline~ \\ %\hline
+			\small \@stringDegreeCourse: & \small \@degreecourse \\ %\hline
+			\small \@stringSupervisor: & \small \@supervisor \\ %\hline
+			% \small \@stringReviewer: &  \small \@gutachterA \\
 			% \small & \small \@gutachterB \\
 		\end{tabular}
 	}
@@ -123,12 +158,12 @@
 	\renewcommand{\@arbeitstyp}{Masterprojekt}
 }
 \DeclareOption{masterarbeit}{
-	\renewcommand{\@betreuergutachter}{
+	\renewcommand{\@supervisorreviewer}{
 		\begin{tabular}{lp{8cm}}%\hline
-			\small \@ort, \@datum & ~\newline\newline\newline~ \\ %\hline
-			\small Studiengang: & \small \@studiengang \\ %\hline
-			\small Betreuer: & \small \@betreuer \\ %\hline
-			\small Gutachter: &  \small \@gutachterA \\
+			\small \@location, \@dateofthesis & ~\newline\newline\newline~ \\ %\hline
+			\small \@stringDegreeCourse: & \small \@degreecourse \\ %\hline
+			\small \@stringSupervisor: & \small \@supervisor \\ %\hline
+			\small \@stringReviewer: &  \small \@gutachterA \\
 			\small & \small \@gutachterB \\
 		\end{tabular}
 	}
@@ -136,12 +171,12 @@
 	\renewcommand{\@arbeitstyp}{Masterarbeit}
 }
 \DeclareOption{dissertation}{
-	\renewcommand{\@betreuergutachter}{
+	\renewcommand{\@supervisorreviewer}{
 		\begin{tabular}{lp{8cm}}%\hline
-			\small \@ort, \@datum & ~\newline\newline\newline~ \\ %\hline
-			\small Studiengang: & \small \@studiengang \\ %\hline
-			\small Betreuer: & \small \@betreuer \\ %\hline
-			\small Gutachter: &  \small \@gutachterA \\
+			\small \@location, \@dateofthesis & ~\newline\newline\newline~ \\ %\hline
+			\small \@stringDegreeCourse: & \small \@degreecourse \\ %\hline
+			\small \@stringSupervisor: & \small \@supervisor \\ %\hline
+			\small \@stringReviewer: &  \small \@gutachterA \\
 			\small & \small \@gutachterB \\
 		\end{tabular}
 	}
@@ -149,12 +184,12 @@
 	\renewcommand{\@arbeitstyp}{Dissertation}
 }
 \DeclareOption{seminararbeit}{
-	\renewcommand{\@betreuergutachter}{
+	\renewcommand{\@supervisorreviewer}{
 		\begin{tabular}{lp{8cm}}%\hline
-			\small \@ort, \@datum & ~\newline\newline\newline~ \\ %\hline
-			\small Studiengang: & \small \@studiengang \\ %\hline
-			\small Betreuer: & \small \@betreuer \\ %\hline
-			% \small Gutachter: &  \small \@gutachterA \\
+			\small \@location, \@dateofthesis & ~\newline\newline\newline~ \\ %\hline
+			\small \@stringDegreeCourse: & \small \@degreecourse \\ %\hline
+			\small \@stringSupervisor: & \small \@supervisor \\ %\hline
+			% \small \@stringReviewer: &  \small \@gutachterA \\
 			% \small & \small \@gutachterB \\
 		\end{tabular}
 	}
@@ -163,12 +198,12 @@
 	\renewcommand{\@arbeitstyp}{Seminararbeit}
 }
 \DeclareOption{fallstudie}{
-	\renewcommand{\@betreuergutachter}{
+	\renewcommand{\@supervisorreviewer}{
 		\begin{tabular}{lp{8cm}}%\hline
-			\small \@ort, \@datum & ~\newline\newline\newline~ \\ %\hline
-			\small Studiengang: & \small \@studiengang \\ %\hline
-			\small Betreuer: & \small \@betreuer \\ %\hline
-			% \small Gutachter: &  \small \@gutachterA \\
+			\small \@location, \@dateofthesis & ~\newline\newline\newline~ \\ %\hline
+			\small \@stringDegreeCourse: & \small \@degreecourse \\ %\hline
+			\small \@stringSupervisor: & \small \@supervisor \\ %\hline
+			% \small \@stringReviewer: &  \small \@gutachterA \\
 			% \small & \small \@gutachterB \\
 		\end{tabular}
 	}
@@ -459,18 +494,18 @@
 
 	{\Huge\bfseries\uppercase{\@arbeitstyp}}\\[2cm]
 
-	{Titel\\[2mm]
+	{\@stringTitle\\[2mm]
 	\huge\bfseries\textsc{\centering,,\@title''}}\\[3cm]
 
 
-	{Verfasser\\
+	{\@stringAuthor\\
 	\bfseries \@author}\\[1cm]
 
-	{angestrebter akademischer Grad\\
-	\bfseries \@akademischergrad}\\[2cm]
+	{\@stringDegree\\
+	\bfseries \@degree}\\[2cm]
 
 	\scalebox{1.1} {
-		\@betreuergutachter
+		\@supervisorreviewer
 	}
 	\end{center}
 	\end{titlepage}
