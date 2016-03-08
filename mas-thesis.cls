@@ -12,51 +12,52 @@
 % load base class
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
-\LoadClass[openright,titlepage,numbers=noenddot,headinclude,footinclude=true,cleardoublepage=empty,BCOR=5mm,paper=A4,fontsize=11pt,twoside]{scrreprt}[2015/01/01]
+\LoadClass[openright,titlepage,numbers=noenddot,headinclude,footinclude=true,cleardoublepage=empty,BCOR=5mm,paper=A4,fontsize=12pt,twoside]{scrreprt}[2015/01/01]
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % translations
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%% German
-
-\newcommand{\@supervisor}{<Betreuername per \textbackslash supervisor setzen>}
-\newcommand{\@reviewerA}{<Gutachtername 1 per \textbackslash reviewerA setzen>}
-\newcommand{\@reviewerB}{<Gutachtername 2 per \textbackslash reviewerB setzen>}
-\newcommand{\@fieldofdissertation}{<Dissertationsgebiet per \textbackslash fieldofdissertation setzen>}
-\newcommand{\@degree}{<Angestrebten Grad per \textbackslash degree setzen>}
-\newcommand{\@location}{<Ort der Arbeit per \textbackslash location setzen>}
-\newcommand{\@degreecourse}{<Studiengang per \textbackslash degreecourse setzen>}
-\newcommand{\@dateofthesis}{\today}
-
-\newcommand{\@stringTitle}{Titel}
-\newcommand{\@stringAuthor}{Verfasser}
-\newcommand{\@stringDegree}{Angestrebter akademischer Grad}
-\newcommand{\@stringDegreeCourse}{Studiengang}
-\newcommand{\@stringSupervisor}{Betreuer}
-\newcommand{\@stringReviewer}{Gutachter}
-
-
-%% Set defaults for English language
-
 \DeclareOption{english}{
-	\renewcommand{\@supervisor}{<Set supervisor name with \textbackslash supervisor>}
-	\renewcommand{\@reviewerA}{<Set name of 1st supervisor with \textbackslash reviewerA>}
-	\renewcommand{\@reviewerB}{<Set name of 2nd supervisor with \textbackslash reviewerB>}
-	\renewcommand{\@fieldofdissertation}{<Set field of dissertation with \textbackslash fieldofdissertation>}
-	\renewcommand{\@degree}{<Set intended degree with \textbackslash degree>}
-	\renewcommand{\@location}{<Set location of thesis with \textbackslash location>}
-	\renewcommand{\@degreecourse}{<Set seeked major with \textbackslash degreecourse>}
-
-	\renewcommand{\@stringTitle}{Title}
-	\renewcommand{\@stringAuthor}{Author}
-	\renewcommand{\@stringDegree}{Seeked Major}
-	\renewcommand{\@stringDegreeCourse}{Major}
-	\renewcommand{\@stringSupervisor}{Supervisor}
-	\renewcommand{\@stringReviewer}{Reviewer}
+	\newcommand{\@useEnglish}{defined}
 }
+
+%% German
+\ifx\@useEnglish\undefined
+	\newcommand{\@supervisor}{<Betreuername per \textbackslash supervisor setzen>}
+	\newcommand{\@reviewerA}{<Gutachtername 1 per \textbackslash reviewerA setzen>}
+	\newcommand{\@reviewerB}{<Gutachtername 2 per \textbackslash reviewerB setzen>}
+	\newcommand{\@fieldofdissertation}{<Dissertationsgebiet per \textbackslash fieldofdissertation setzen>}
+	\newcommand{\@degree}{<Angestrebten Grad per \textbackslash degree setzen>}
+	\newcommand{\@location}{<Ort der Arbeit per \textbackslash location setzen>}
+	\newcommand{\@degreecourse}{<Studiengang per \textbackslash degreecourse setzen>}
+	\newcommand{\@handoverdate}{\today}
+
+	\newcommand{\@stringTitle}{Titel}
+	\newcommand{\@stringAuthor}{Verfasser}
+	\newcommand{\@stringDegree}{Angestrebter akademischer Grad}
+	\newcommand{\@stringDegreeCourse}{Studiengang}
+	\newcommand{\@stringSupervisor}{Betreuer}
+	\newcommand{\@stringReviewer}{Gutachter}
+	\newcommand{\@stringHandoverdate}{Abgabe}
+\else
+	%% Set defaults for English language
+	\newcommand{\@supervisor}{<Set supervisor name with \textbackslash supervisor>}
+	\newcommand{\@reviewerA}{<Set name of 1st supervisor with \textbackslash reviewerA>}
+	\newcommand{\@reviewerB}{<Set name of 2nd supervisor with \textbackslash reviewerB>}
+	\newcommand{\@fieldofdissertation}{<Set field of dissertation with \textbackslash fieldofdissertation>}
+	\newcommand{\@degree}{<Set intended degree with \textbackslash degree>}
+	\newcommand{\@location}{<Set location of thesis with \textbackslash location>}
+
+	\newcommand{\@stringTitle}{Title}
+	\newcommand{\@stringAuthor}{Author}
+	\newcommand{\@stringDegree}{Seeked Major}
+	\newcommand{\@stringDegreeCourse}{Major}
+	\newcommand{\@stringSupervisor}{Supervisor}
+	\newcommand{\@stringReviewer}{Reviewer}
+	\newcommand{\@stringHandoverdate}{Handover date}
+\fi
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -79,6 +80,8 @@
 
 \newcommand{\degreecourse}[1]{\renewcommand\@degreecourse{#1}}
 
+\newcommand{\handoverdate}[1]{\renewcommand\@handoverdate{#1}}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % internal commands defaults declaration
@@ -95,14 +98,12 @@
 		\small \@location, \@dateofthesis & ~\newline\newline\newline~ \\ %\hline
 		\small \@stringDegreeCourse: & \small \@degreecourse \\ %\hline
 		\small \@stringSupervisor: & \small \@supervisor \\ %\hline
-		%\small \@stringReviewer: &  \small \@gutachterA \\
-		%\small & \small \@gutachterB \\
+		%\small \@stringReviewer: &  \small \@reviewerA \\
+		%\small & \small \@reviewerB \\
 	\end{tabular}
 }
 
 \newcommand{\@arbeitstyp}{<Art der Arbeit (Option f\"ur \textbackslash documentclass setzen)>}
-
-\newcommand{\@spacebelowtitle}{4cm}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -119,52 +120,49 @@
 \DeclareOption{bachelorprojekt}{
 	\renewcommand{\@supervisorreviewer}{
 		\begin{tabular}{lp{8cm}}%\hline
-			\small \@location, \@dateofthesis & ~\newline\newline\newline~ \\ %\hline
 			\small \@stringDegreeCourse: & \small \@degreecourse \\ %\hline
 			\small \@stringSupervisor: & \small \@supervisor \\ %\hline
-			%\small \@stringReviewer: &  \small \@gutachterA \\
-			%\small & \small \@gutachterB \\
+			%\small \@stringReviewer: &  \small \@reviewerA \\
+			%\small & \small \@reviewerB \\
 		\end{tabular}
 	}
 	
-	\renewcommand{\@spacebelowtitle}{5cm}
 	\renewcommand{\@arbeitstyp}{Bachelorprojekt}
+	\renewcommand{\thesection}{\arabic{section}}
 }
 \DeclareOption{bachelorarbeit}{
 	\renewcommand{\@supervisorreviewer}{
 		\begin{tabular}{lp{8cm}}%\hline
-			\small \@location, \@dateofthesis & ~\newline\newline\newline~ \\ %\hline
 			\small \@stringDegreeCourse: & \small \@degreecourse \\ %\hline
 			\small \@stringSupervisor: & \small \@supervisor \\ %\hline
-			\small \@stringReviewer: &  \small \@gutachterA \\
-			\small & \small \@gutachterB \\
+			\small \@stringReviewer: &  \small \@reviewerA \\
+			\small & \small \@reviewerB \\
 		\end{tabular}
 	}
 	
 	\renewcommand{\@arbeitstyp}{Bachelorarbeit}
+	\renewcommand{\thesection}{\arabic{section}}
 }
 \DeclareOption{masterprojekt}{
 	\renewcommand{\@supervisorreviewer}{
 		\begin{tabular}{lp{8cm}}%\hline
-			\small \@location, \@dateofthesis & ~\newline\newline\newline~ \\ %\hline
 			\small \@stringDegreeCourse: & \small \@degreecourse \\ %\hline
 			\small \@stringSupervisor: & \small \@supervisor \\ %\hline
-			% \small \@stringReviewer: &  \small \@gutachterA \\
-			% \small & \small \@gutachterB \\
+			% \small \@stringReviewer: &  \small \@reviewerA \\
+			% \small & \small \@reviewerB \\
 		\end{tabular}
 	}
 
-	\renewcommand{\@spacebelowtitle}{5cm}
 	\renewcommand{\@arbeitstyp}{Masterprojekt}
+	\renewcommand{\thesection}{\arabic{section}}
 }
 \DeclareOption{masterarbeit}{
 	\renewcommand{\@supervisorreviewer}{
 		\begin{tabular}{lp{8cm}}%\hline
-			\small \@location, \@dateofthesis & ~\newline\newline\newline~ \\ %\hline
 			\small \@stringDegreeCourse: & \small \@degreecourse \\ %\hline
 			\small \@stringSupervisor: & \small \@supervisor \\ %\hline
-			\small \@stringReviewer: &  \small \@gutachterA \\
-			\small & \small \@gutachterB \\
+			\small \@stringReviewer: &  \small \@reviewerA \\
+			\small & \small \@reviewerB \\
 		\end{tabular}
 	}
 	
@@ -173,11 +171,10 @@
 \DeclareOption{dissertation}{
 	\renewcommand{\@supervisorreviewer}{
 		\begin{tabular}{lp{8cm}}%\hline
-			\small \@location, \@dateofthesis & ~\newline\newline\newline~ \\ %\hline
 			\small \@stringDegreeCourse: & \small \@degreecourse \\ %\hline
 			\small \@stringSupervisor: & \small \@supervisor \\ %\hline
-			\small \@stringReviewer: &  \small \@gutachterA \\
-			\small & \small \@gutachterB \\
+			\small \@stringReviewer: &  \small \@reviewerA \\
+			\small & \small \@reviewerB \\
 		\end{tabular}
 	}
 
@@ -186,30 +183,28 @@
 \DeclareOption{seminararbeit}{
 	\renewcommand{\@supervisorreviewer}{
 		\begin{tabular}{lp{8cm}}%\hline
-			\small \@location, \@dateofthesis & ~\newline\newline\newline~ \\ %\hline
 			\small \@stringDegreeCourse: & \small \@degreecourse \\ %\hline
 			\small \@stringSupervisor: & \small \@supervisor \\ %\hline
-			% \small \@stringReviewer: &  \small \@gutachterA \\
-			% \small & \small \@gutachterB \\
+			% \small \@stringReviewer: &  \small \@reviewerA \\
+			% \small & \small \@reviewerB \\
 		\end{tabular}
 	}
 
-	\renewcommand{\@spacebelowtitle}{5cm}	
 	\renewcommand{\@arbeitstyp}{Seminararbeit}
+	\renewcommand{\thesection}{\arabic{section}}
 }
 \DeclareOption{fallstudie}{
 	\renewcommand{\@supervisorreviewer}{
 		\begin{tabular}{lp{8cm}}%\hline
-			\small \@location, \@dateofthesis & ~\newline\newline\newline~ \\ %\hline
 			\small \@stringDegreeCourse: & \small \@degreecourse \\ %\hline
 			\small \@stringSupervisor: & \small \@supervisor \\ %\hline
-			% \small \@stringReviewer: &  \small \@gutachterA \\
-			% \small & \small \@gutachterB \\
+			% \small \@stringReviewer: &  \small \@reviewerA \\
+			% \small & \small \@reviewerB \\
 		\end{tabular}
 	}
-	
-	\renewcommand{\@spacebelowtitle}{5cm}
+
 	\renewcommand{\@arbeitstyp}{Fallstudie}
+	\renewcommand{\thesection}{\arabic{section}}
 }
 \ProcessOptions\relax
 
@@ -237,14 +232,28 @@
 	%\setmathfont{texgyrepagellamath-regular.otf} % math font for libertine
 	%\setmathfont{texgyrepagella-math.otf} % math font for libertine
 	\setmathfont[math-style=ISO,bold-style=ISO,vargreek-shape=TeX,Ligatures=TeX]{TeX Gyre Pagella Math}
-	\RequirePackage{polyglossia} % babel replacement for use with fontspec
-	\setdefaultlanguage[variant=american]{english}
-	\selectlanguage[variant=american]{english}
-	\setotherlanguage{german}
+	%\RequirePackage{polyglossia} % babel replacement for use with fontspec
+	\ifx\@useEnglish\undefined
+	%	\setdefaultlanguage{german}  % polyglossia bugged with "german" on 2016-03-08
+	%	\selectlanguage{german}	  % Using babel instead
+	%	\setotherlanguage[variant=american]{english}
+		\RequirePackage[T1]{fontenc}
+		\RequirePackage[german]{babel}
+	\else
+	%	\setdefaultlanguage[variant=american]{english}
+	%	\selectlanguage[variant=american]{english}
+	%	\setotherlanguage{german}
+		\RequirePackage[T1]{fontenc}
+		\RequirePackage[english]{babel}
+	\fi
 \else
 	\RequirePackage[utf8]{inputenc}
 	\RequirePackage[T1]{fontenc}
-	\RequirePackage[american]{babel}
+	\ifx\@useEnglish\undefined
+		\RequirePackage[german]{babel}
+	\else
+		\RequirePackage[american]{babel}
+	\fi
 	\RequirePackage{amsmath}
 	\RequirePackage{mathtools} % instead of amsmath; amssymb and amsthm not included
 	\RequirePackage{libertine}
@@ -324,7 +333,7 @@
 
 
 %%% text
-\linespread{1.05}
+\linespread{1.25}
 \setlist[description]{labelindent=\parindent}
 \hfuzz=1.36pt
 
@@ -440,13 +449,13 @@
   {\raggedright\spacedallcaps}[\normalsize\vspace*{.8\baselineskip}\titlerule]%
 
 % sections
-\titleformat{\section}{\relax}{\textsc{\thesection}}{1em}{\scshape}
+\titleformat{\section}{\relax}{\textsc{\thesection}}{1em}{\Large\scshape}
 
 % subsections
-\titleformat{\subsection}{\relax}{\textsc{\MakeTextLowercase{\thesubsection}}}{1em}{\normalsize\itshape}
+\titleformat{\subsection}{\relax}{\textsc{\MakeTextLowercase{\thesubsection}}}{1em}{\large}
 
 % subsubsections
-\titleformat{\subsubsection}{\relax}{\textsc{\MakeTextLowercase{\thesubsubsection}}}{1em}{\normalsize\itshape}
+\titleformat{\subsubsection}{\relax}{\textsc{\MakeTextLowercase{\thesubsubsection}}}{1em}{\normalsize}
 
 % paragraphs
 \titleformat{\paragraph}[hang]{\normalfont\normalsize}{\theparagraph}{0pt}{\scshape}
@@ -492,17 +501,17 @@
 
 	\vskip 1.5cm
 
-	{\Huge\bfseries\uppercase{\@arbeitstyp}}\\[2cm]
+	{\Huge\bfseries\uppercase{\@arbeitstyp}}\\[1.5cm]
 
 	{\@stringTitle\\[2mm]
-	\huge\bfseries\textsc{\centering,,\@title''}}\\[3cm]
+	\huge\bfseries\textsc{\centering,,\@title''}}\\[2cm]
 
 
 	{\@stringAuthor\\
-	\bfseries \@author}\\[1cm]
+	\bfseries \@author}\\[2cm]
 
-	{\@stringDegree\\
-	\bfseries \@degree}\\[2cm]
+	{\@stringHandoverdate\\
+	\bfseries \@handoverdate}\\[2cm]
 
 	\scalebox{1.1} {
 		\@supervisorreviewer
@@ -524,7 +533,7 @@
 	% \end{center}
 	~\vfill
 	%\begin{center}
-	\noindent\copyright~\the\year~by \@author
+	\noindent\textcopyright~\the\year~by \@author
 
 	\vspace{5mm}
 

@@ -1,21 +1,25 @@
 %!TEX program = lualatex
-\documentclass[fallstudie,grey,english]{mas-thesis}				% Verfügbare Optionen:
+\documentclass[seminararbeit,grey]{mas-thesis}				% Available options:
 															% masterarbeit, bachelorarbeit, dissertation,
 															% masterprojekt, bachelorprojekt, seminararbeit,
 															% fallstudie, grey (für Graustufen), english
 
 \author{Autorname}
 \title{Titel der Arbeit}
-\supervisor{Univ.-Prof.~Dipl.-Ing.~Dr.~Betreuer~Name}		% ~ statt Leerzeichen für schönere Abstände
-\reviewerA{Gutachter~A}
+\supervisor{Univ.-Prof.~Dipl.-Ing.~Dr.~Betreuer~Name}	% ~ for nicer spaces
+\reviewerA{Univ.-Prof.~Dr.~Tobias~Hoßfeld}
 \reviewerB{Gutachter~B}
 \degreecourse{Angewandte Informatik - Network Engineering}
 \degree{Bachelor of Science}
 \location{Essen}
-\dateofthesis{\the\year}										% \today (ohne \the) ist auch eine Möglichkeit
+%\linespread{1.25}										% Line spread (default is 1.25)
+\handoverdate{\today}
 
 %%%%%%%%%%%%%% 
-%TODO:
+%TODO: 
+% - German, English dates
+% - ToC clickable PDF
+% - \include sections
 
 %\usepackage{array}
 
@@ -33,7 +37,47 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
 
-\maketitle
+\maketitle				% Title Page
+
+
+\pagenumbering{Roman}
+
+\cleardoublepage
+
+
+\tableofcontents		% Table of Contents
+
+\cleardoublepage
+
+\listofillustrations	% List of Figures and List of Tables
+
+
+\cleardoublepage
+
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+%\chapter{Introduction}	% Remove if not dissertation or masterarbeit
+
+\section{Abstract}
+
+This document is an example of how to use this template to write your own thesis. It gives a short summary of the most important aspects and options that define this template.
+
+\newpage
+
+\section{Sections}
+
+This is an example of a numbered section. The section number increases automatically and does not need to be stated. To use a unnumbered section, just use $\backslash section* \{Name of unnumbered section\}$. A section can be divided by multiple subsections.
+
+\subsection{Subsections}
+
+This is a numerated subsection. There is also a $\backslash subsubsection$. To create a unnumbered subsection, just add a * like needed for sections.
+
+\section{Imports}
+
+Large thesis like master thesis and dissertations often get very confusing when written in single document. You can import other .tex files with the command $\backslash include\{other-latex-file.tex\}$.
+
+
 \makelicensepageCCBYSA
 
 
