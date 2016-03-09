@@ -1,5 +1,5 @@
 %!TEX program = lualatex
-\documentclass[seminararbeit,grey]{mas-thesis}				% Available options:
+\documentclass[bachelorarbeit,grey,english]{mas-thesis-sections}				% Available options:
 															% masterarbeit, bachelorarbeit, dissertation,
 															% masterprojekt, bachelorprojekt, seminararbeit,
 															% fallstudie, grey (für Graustufen), english
@@ -10,10 +10,9 @@
 \reviewerA{Univ.-Prof.~Dr.~Tobias~Hoßfeld}
 \reviewerB{Gutachter~B}
 \degreecourse{Angewandte Informatik - Network Engineering}
-\degree{Bachelor of Science}
 \location{Essen}
 %\linespread{1.25}										% Line spread (default is 1.25)
-\handoverdate{\today}
+\handoverdate{13.03.2015}
 
 %%%%%%%%%%%%%% 
 %TODO: 
@@ -39,12 +38,9 @@
 
 \maketitle				% Title Page
 
-
-\pagenumbering{Roman}
-
 \cleardoublepage
 
-
+\pagenumbering{Roman}
 \tableofcontents		% Table of Contents
 
 \cleardoublepage
@@ -67,15 +63,47 @@ This document is an example of how to use this template to write your own thesis
 
 \section{Sections}
 
-This is an example of a numbered section. The section number increases automatically and does not need to be stated. To use a unnumbered section, just use $\backslash section* \{Name of unnumbered section\}$. A section can be divided by multiple subsections.
+This is an example of a numbered section. The section number increases automatically and does not need to be stated. To use a unnumbered section, just use {\tt \textbackslash section* \{Name of unnumbered section\}}. A section can be divided by multiple subsections.
 
 \subsection{Subsections}
 
-This is a numerated subsection. There is also a $\backslash subsubsection$. To create a unnumbered subsection, just add a * like needed for sections.
+This is a numerated {\tt \textbackslash subsection}. There is also a {\tt \textbackslash subsubsection} command. To create an unnumbered subsection, just add * like needed for sections.
+
+\newpage
 
 \section{Imports}
 
-Large thesis like master thesis and dissertations often get very confusing when written in single document. You can import other .tex files with the command $\backslash include\{other-latex-file.tex\}$.
+Large thesis like master thesis and dissertations often get very confusing when written in single document. You can import other .tex files with the {\tt \textbackslash include\{other-latex-file.tex\}} command. The formatting will be taken from the master file and the sections, figures, tables, footnotes, citations, etc. are integrated in the context of the master file.
+
+\newpage
+
+\section{Tables and Figures}
+
+In \LaTeX\ you can use tables and figures which will be automatically added to the List of Tables and List of Figures after the Table of Contents.
+
+\subsection{Tables}
+
+\begin{table}[h]
+\begin{center}
+	\begin{tabular}{ l | c | r }
+		1 & 2 & 3 \\
+		\hline
+		4 & 5 & 6 \\
+		7 & 8 & 9 \\
+	\end{tabular}
+	\caption{Example of a table}
+	\label{table:1}
+\end{center}
+\end{table}
+
+\subsection{Figures}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[height=6cm]{graphics/demo-graphic.pdf}
+	\caption{Example of an imported PDF graphic}
+	\label{figure:1}
+\end{figure}
 
 
 \makelicensepageCCBYSA
@@ -117,7 +145,7 @@ Large thesis like master thesis and dissertations often get very confusing when 
 % \printbibliography[title=Own Publications, category=ownpub, heading=bibintoc, prenote=ownpubdisclaimer]
 
 
-% %\chapter*{Own Publications}
+% %\section*{Own Publications}
 % %\addcontentsline{toc}{chapter}{Own Publications}%
 
 % %\printbibliography[category=ownpub]

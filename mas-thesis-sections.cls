@@ -5,58 +5,78 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \NeedsTeXFormat{LaTeX2e}[2015/01/01]
-\ProvidesClass{mas-thesis}[2015/08/28 Uni-DUE MAS thesis class]
+\ProvidesClass{mas-thesis-sections}[2015/08/28 Uni-DUE MAS thesis class]
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % load base class
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\LoadClass[openright,titlepage,numbers=noenddot,headinclude,footinclude=true,cleardoublepage=empty,BCOR=5mm,paper=A4,fontsize=12pt,twoside]{scrreprt}[2015/01/01]
+%\LoadClass[openright,titlepage,numbers=noenddot,headinclude,footinclude=true,cleardoublepage=empty,BCOR=5mm,paper=A4,fontsize=12pt,twoside]{scrreprt}[2015/01/01]
+\LoadClass[openright,titlepage,numbers=noenddot,headinclude,footinclude=true,cleardoublepage=empty,BCOR=5mm,paper=A4,fontsize=12pt,twoside]{scrartcl}[2015/01/01]
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % translations
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\newif\ifgerman\germantrue
+
 \DeclareOption{english}{
-	\newcommand{\@useEnglish}{defined}
+	\germanfalse
 }
 
+%% Set defaults for English language
+\newcommand{\@supervisor}{<Set supervisor name with \textbackslash supervisor>}
+\newcommand{\@reviewerA}{<Set name of 1st supervisor with \textbackslash reviewerA>}
+\newcommand{\@reviewerB}{<Set name of 2nd supervisor with \textbackslash reviewerB>}
+\newcommand{\@fieldofdissertation}{<Set field of dissertation with \textbackslash fieldofdissertation>}
+\newcommand{\@degree}{<Set intended degree with \textbackslash degree>}
+\newcommand{\@location}{<Set location of thesis with \textbackslash location>}
+\newcommand{\@degreecourse}{<Set course with \textbackslash degreecourse>}
+
+\newcommand{\@stringTitle}{Title}
+\newcommand{\@stringAuthor}{Author}
+\newcommand{\@stringDegree}{Seeked Major}
+\newcommand{\@stringDegreeCourse}{Major}
+\newcommand{\@stringSupervisor}{Supervisor}
+\newcommand{\@stringReviewer}{Reviewer}
+\newcommand{\@stringHandoverdate}{Handover date}
+
+
 %% German
-\ifx\@useEnglish\undefined
-	\newcommand{\@supervisor}{<Betreuername per \textbackslash supervisor setzen>}
-	\newcommand{\@reviewerA}{<Gutachtername 1 per \textbackslash reviewerA setzen>}
-	\newcommand{\@reviewerB}{<Gutachtername 2 per \textbackslash reviewerB setzen>}
-	\newcommand{\@fieldofdissertation}{<Dissertationsgebiet per \textbackslash fieldofdissertation setzen>}
-	\newcommand{\@degree}{<Angestrebten Grad per \textbackslash degree setzen>}
-	\newcommand{\@location}{<Ort der Arbeit per \textbackslash location setzen>}
-	\newcommand{\@degreecourse}{<Studiengang per \textbackslash degreecourse setzen>}
-	\newcommand{\@handoverdate}{\today}
+\ifgerman
+	\renewcommand{\@supervisor}{<Betreuername per \textbackslash supervisor setzen>}
+	\renewcommand{\@reviewerA}{<Gutachtername 1 per \textbackslash reviewerA setzen>}
+	\renewcommand{\@reviewerB}{<Gutachtername 2 per \textbackslash reviewerB setzen>}
+	\renewcommand{\@fieldofdissertation}{<Dissertationsgebiet per \textbackslash fieldofdissertation setzen>}
+	\renewcommand{\@degree}{<Angestrebten Grad per \textbackslash degree setzen>}
+	\renewcommand{\@location}{<Ort der Arbeit per \textbackslash location setzen>}
+	\renewcommand{\@degreecourse}{<Studiengang per \textbackslash degreecourse setzen>}
 
-	\newcommand{\@stringTitle}{Titel}
-	\newcommand{\@stringAuthor}{Verfasser}
-	\newcommand{\@stringDegree}{Angestrebter akademischer Grad}
-	\newcommand{\@stringDegreeCourse}{Studiengang}
-	\newcommand{\@stringSupervisor}{Betreuer}
-	\newcommand{\@stringReviewer}{Gutachter}
-	\newcommand{\@stringHandoverdate}{Abgabe}
+	\renewcommand{\@stringTitle}{Titel}
+	\renewcommand{\@stringAuthor}{Verfasser}
+	\renewcommand{\@stringDegree}{Angestrebter akademischer Grad}
+	\renewcommand{\@stringDegreeCourse}{Studiengang}
+	\renewcommand{\@stringSupervisor}{Betreuer}
+	\renewcommand{\@stringReviewer}{Gutachter}
+	\renewcommand{\@stringHandoverdate}{Abgabe}
 \else
-	%% Set defaults for English language
-	\newcommand{\@supervisor}{<Set supervisor name with \textbackslash supervisor>}
-	\newcommand{\@reviewerA}{<Set name of 1st supervisor with \textbackslash reviewerA>}
-	\newcommand{\@reviewerB}{<Set name of 2nd supervisor with \textbackslash reviewerB>}
-	\newcommand{\@fieldofdissertation}{<Set field of dissertation with \textbackslash fieldofdissertation>}
-	\newcommand{\@degree}{<Set intended degree with \textbackslash degree>}
-	\newcommand{\@location}{<Set location of thesis with \textbackslash location>}
+	\renewcommand{\@supervisor}{<Set supervisor name with \textbackslash supervisor>}
+	\renewcommand{\@reviewerA}{<Set name of 1st supervisor with \textbackslash reviewerA>}
+	\renewcommand{\@reviewerB}{<Set name of 2nd supervisor with \textbackslash reviewerB>}
+	\renewcommand{\@fieldofdissertation}{<Set field of dissertation with \textbackslash fieldofdissertation>}
+	\renewcommand{\@degree}{<Set intended degree with \textbackslash degree>}
+	\renewcommand{\@location}{<Set location of thesis with \textbackslash location>}
+	\renewcommand{\@degreecourse}{<Set course with \textbackslash degreecourse>}
 
-	\newcommand{\@stringTitle}{Title}
-	\newcommand{\@stringAuthor}{Author}
-	\newcommand{\@stringDegree}{Seeked Major}
-	\newcommand{\@stringDegreeCourse}{Major}
-	\newcommand{\@stringSupervisor}{Supervisor}
-	\newcommand{\@stringReviewer}{Reviewer}
-	\newcommand{\@stringHandoverdate}{Handover date}
+	\renewcommand{\@stringTitle}{Title}
+	\renewcommand{\@stringAuthor}{Author}
+	\renewcommand{\@stringDegree}{Seeked Major}
+	\renewcommand{\@stringDegreeCourse}{Major}
+	\renewcommand{\@stringSupervisor}{Supervisor}
+	\renewcommand{\@stringReviewer}{Reviewer}
+	\renewcommand{\@stringHandoverdate}{Handover date}
 \fi
 
 
@@ -80,6 +100,7 @@
 
 \newcommand{\degreecourse}[1]{\renewcommand\@degreecourse{#1}}
 
+\newcommand{\@handoverdate}{\today}
 \newcommand{\handoverdate}[1]{\renewcommand\@handoverdate{#1}}
 
 
@@ -127,7 +148,11 @@
 		\end{tabular}
 	}
 	
-	\renewcommand{\@arbeitstyp}{Bachelorprojekt}
+	\ifgerman	
+		\renewcommand{\@arbeitstyp}{Bachelorprojekt}
+	\else
+		\renewcommand{\@arbeitstyp}{Bachelor Project}
+	\fi
 	\renewcommand{\thesection}{\arabic{section}}
 }
 \DeclareOption{bachelorarbeit}{
@@ -140,7 +165,11 @@
 		\end{tabular}
 	}
 	
-	\renewcommand{\@arbeitstyp}{Bachelorarbeit}
+	\ifgerman	
+		\renewcommand{\@arbeitstyp}{Bachelorarbeit}
+	\else
+		\renewcommand{\@arbeitstyp}{Bachelor Thesis}
+	\fi
 	\renewcommand{\thesection}{\arabic{section}}
 }
 \DeclareOption{masterprojekt}{
@@ -153,7 +182,11 @@
 		\end{tabular}
 	}
 
-	\renewcommand{\@arbeitstyp}{Masterprojekt}
+	\ifgerman
+		\renewcommand{\@arbeitstyp}{Masterprojekt}
+	\else
+		\renewcommand{\@arbeitstyp}{Master Project}
+	\fi
 	\renewcommand{\thesection}{\arabic{section}}
 }
 \DeclareOption{masterarbeit}{
@@ -165,8 +198,12 @@
 			\small & \small \@reviewerB \\
 		\end{tabular}
 	}
-	
-	\renewcommand{\@arbeitstyp}{Masterarbeit}
+
+	\ifgerman
+		\renewcommand{\@arbeitstyp}{Masterarbeit}
+	\else
+		\renewcommand{\@arbeitstyp}{Master Thesis}
+	\fi
 }
 \DeclareOption{dissertation}{
 	\renewcommand{\@supervisorreviewer}{
@@ -202,8 +239,12 @@
 			% \small & \small \@reviewerB \\
 		\end{tabular}
 	}
-
-	\renewcommand{\@arbeitstyp}{Fallstudie}
+	
+	\ifgerman	
+		\renewcommand{\@arbeitstyp}{Fallstudie}
+	\else
+		\renewcommand{\@arbeitstyp}{Case Study}
+	\fi
 	\renewcommand{\thesection}{\arabic{section}}
 }
 \ProcessOptions\relax
@@ -232,25 +273,23 @@
 	%\setmathfont{texgyrepagellamath-regular.otf} % math font for libertine
 	%\setmathfont{texgyrepagella-math.otf} % math font for libertine
 	\setmathfont[math-style=ISO,bold-style=ISO,vargreek-shape=TeX,Ligatures=TeX]{TeX Gyre Pagella Math}
-	%\RequirePackage{polyglossia} % babel replacement for use with fontspec
-	\ifx\@useEnglish\undefined
+	\ifgerman
 	%	\setdefaultlanguage{german}  % polyglossia bugged with "german" on 2016-03-08
 	%	\selectlanguage{german}	  % Using babel instead
 	%	\setotherlanguage[variant=american]{english}
 		\RequirePackage[T1]{fontenc}
-		\RequirePackage[german]{babel}
+		\RequirePackage[ngerman]{babel}
 	\else
-	%	\setdefaultlanguage[variant=american]{english}
-	%	\selectlanguage[variant=american]{english}
-	%	\setotherlanguage{german}
-		\RequirePackage[T1]{fontenc}
-		\RequirePackage[english]{babel}
+		\RequirePackage{polyglossia} % babel replacement for use with fontspec
+		\setdefaultlanguage[variant=american]{english}
+		\selectlanguage[variant=american]{english}
+		\setotherlanguage{german}
 	\fi
 \else
 	\RequirePackage[utf8]{inputenc}
 	\RequirePackage[T1]{fontenc}
-	\ifx\@useEnglish\undefined
-		\RequirePackage[german]{babel}
+	\ifgerman
+		\RequirePackage[ngerman]{babel}
 	\else
 		\RequirePackage[american]{babel}
 	\fi
@@ -261,7 +300,6 @@
 	\RequirePackage{microtype}
 	\microtypesetup{expansion=false}%
 \fi
-
 
 \RequirePackage[hyphens]{url}
 \RequirePackage{scrhack} % fix komascript floattolist issues
@@ -281,7 +319,7 @@
 
 \RequirePackage[colorlinks, unicode=true]{hyperref}
 \hypersetup{pdfencoding=auto, colorlinks=true, linktocpage=true, breaklinks=true, bookmarksnumbered, bookmarksopen=true,bookmarksopenlevel=1, pdfhighlight=/O, urlcolor=webbrown, linkcolor=linkblue, citecolor=webgreen}
-\RequirePackage[acronym, nomain, style=tree, toc, section=chapter, nogroupskip=true]{glossaries}
+\RequirePackage[acronym, nomain, style=tree, toc, section=section, nogroupskip=true]{glossaries}
 \RequirePackage{textcomp} % extra symbols; used for euro and copyright symbol
 \RequirePackage[load-configurations={abbreviations,binary}]{siunitx}
 \sisetup{load-configurations = abbreviations,binary-units}
@@ -364,14 +402,22 @@
 	\begingroup
 		\let\clearpage\relax
 		\let\cleardoublepage\relax
-		\chapter*{Figures}%
+		\ifgerman
+			\section*{Abbildungen}%
+		\else
+			\section*{Figures}
+		\fi
 		%\phantomsection
-		\addcontentsline{toc}{chapter}{Figures}%
+		\addcontentsline{toc}{section}{Figures}%
 		\@starttoc{lof}%
 		\bigskip
-		\chapter*{Tables}%
+		\ifgerman
+			\section*{Tabellen}%
+		\else
+			\section*{Tables}
+		\fi
 		%\phantomsection
-		\addcontentsline{toc}{chapter}{Tables}%
+		\addcontentsline{toc}{section}{Tables}%
 		\@starttoc{lot}
     \endgroup}
 %\makeatother
@@ -429,14 +475,16 @@
 % headlines
     \clearscrheadings
     \setheadsepline{0pt}
-    \renewcommand{\sectionmark}[1]{\markright{\thesection\enspace\textsc{#1}}} 
-    \lehead{\mbox{\llap{\small\thepage\kern2em}\headmark\hfil}}
-    \rohead{\mbox{\hfil{\headmark}\rlap{\small\kern2em\thepage}}}
+    \renewcommand{\sectionmark}[1]{\markright{\thesection\enspace\textsc{#1}}\markleft{\thesection\enspace\textsc{#1}}}
+    \lehead{\mbox{\headmark\hfil}}
+    \rohead{\mbox{\hfil{\headmark}}}
+    \rofoot{\mbox{\hfil{\thepage}}}
+    \lefoot{\mbox{\hfil{\thepage}}}
     \renewcommand{\headfont}{\small}  
   %    \DeclareRobustCommand{\fixBothHeadlines}[2]{} % <--- ToDo
     % hack to get the content headlines right (thanks, Lorenzo!)
     \def\toc@heading{%
-      \chapter*{\contentsname}
+      \section*{\contentsname}
       \@mkboth{\textsc{\contentsname}}{\textsc{\contentsname}}}
 
 
@@ -444,8 +492,8 @@
 % section heading styles     
 %\AtBeginDocument{\addtocontents{toc}{\protect\vspace{-\cftbeforechapskip}}}
 
-\titleformat{\chapter}[display]%
-  {\relax}{\vspace*{-3\baselineskip}\makebox[\linewidth][r]{\color{halfgray}\fontsize{2.7cm}{1em}\selectfont\thechapter}}{0pt}%
+\titleformat{\section}[display]%
+  {\relax}{\vspace*{-3\baselineskip}\makebox[\linewidth][r]{\color{halfgray}\fontsize{2.7cm}{1em}\selectfont\thesection}}{0pt}%
   {\raggedright\spacedallcaps}[\normalsize\vspace*{.8\baselineskip}\titlerule]%
 
 % sections
@@ -463,25 +511,25 @@
 % descriptionlabels
 \renewcommand{\descriptionlabel}[1]{\hspace*{\labelsep}\textsc{#1}}   % spacedlowsmallcaps textit textsc                  
 % spacing
-\titlespacing*{\chapter}{0pt}{1\baselineskip}{1.2\baselineskip}
+\titlespacing*{\section}{0pt}{1\baselineskip}{1.2\baselineskip}
 \titlespacing*{\section}{0pt}{1.25\baselineskip}{1\baselineskip} 
 \titlespacing*{\subsection}{0pt}{1.25\baselineskip}{1\baselineskip}
 \titlespacing*{\paragraph}{0pt}{1\baselineskip}{1\baselineskip}
 
 
 %% toc style with tocloft package
-\renewcommand{\cftchappresnum}{\scshape\MakeTextLowercase}%
-\renewcommand{\cftchapfont}{\normalfont}%
-\renewcommand{\cftchappagefont}{\normalfont}%
-\let\oldchap=\chapter
-\renewcommand*{\chapter}{\secdef{\Chap}{\ChapS}}
-\newcommand\ChapS[1]{\oldchap*{#1}}%
+%\renewcommand{\cftchappresnum}{\scshape\MakeTextLowercase}%
+%\renewcommand{\cftchapfont}{\normalfont}%
+%\renewcommand{\cftchappagefont}{\normalfont}%
+%\let\oldchap=\section
+%\renewcommand*{\section}{\secdef{\Chap}{\ChapS}}
+%\newcommand\ChapS[1]{\oldchap*{#1}}%
 % \newcommand\Chap[2][]{%
 %        \ifpdf\oldchap[\texorpdfstring{\spacedlowsmallcaps{#1}}{#1}]{#2}%
 %        \else\oldchap[\spacedlowsmallcaps{#1}]{#2}%
 %        \fi%
 % }%
-\newcommand\Chap[2][]{\oldchap[\textsc{#1}]{#2}}%
+%\newcommand\Chap[2][]{\oldchap[\textsc{#1}]{#2}}%
 %\textsc{foo} {\scshape bar}
 
 \deffootnote{0em}{0em}{\thefootnotemark\hspace*{.5em}}
