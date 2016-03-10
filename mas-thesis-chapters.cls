@@ -11,9 +11,9 @@
 % load base class
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\LoadClass[openright,titlepage,numbers=noenddot,headinclude,footinclude=true,cleardoublepage=empty,BCOR=5mm,paper=A4,fontsize=12pt,twoside]{scrartcl}[2015/01/01]
+\LoadClass[openright,titlepage,numbers=noenddot,headinclude,footinclude=true,cleardoublepage=empty,BCOR=5mm,paper=A4,fontsize=12pt,twoside]{scrreprt}[2015/01/01]
 
-\ProvidesClass{mas-thesis-sections}[2015/08/28 Uni-DUE MAS thesis class]
+\ProvidesClass{mas-thesis-chapters}[2015/08/28 Uni-DUE MAS thesis class]
 
 \input{mas-thesis-common.cls}
 
@@ -22,7 +22,7 @@
 % LaTeX parameters
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\RequirePackage[acronym, nomain, style=tree, toc, section=section, nogroupskip=true]{glossaries}
+\RequirePackage[acronym, nomain, style=tree, toc, section=chapter, nogroupskip=true]{glossaries}
 
 %% load and typeset glossaries
 \makeglossaries
@@ -46,16 +46,33 @@
 \setglossarystyle{treewithref}
 
 \def\toc@heading{
- 	\section*{\contentsname}
+ 	\chapter*{\contentsname}
  	\@mkboth{\textsc{\contentsname}}{\textsc{\contentsname}}
 }
+
+\titleformat{\chapter}[display]
+	{\relax}{\vspace*{-3\baselineskip}\makebox[\linewidth][r]{\color{halfgray}\fontsize{2.7cm}{1em}\selectfont\thechapter}}{0pt}
+	{\raggedright\spacedallcaps}[\normalsize\vspace*{.8\baselineskip}\titlerule]
 
 % headlines
 \clearscrheadings
 \setheadsepline{0pt}
-\renewcommand{\sectionmark}[1]{\markright{\thesection\enspace\textsc{#1}}\markleft{\thesection\enspace\textsc{#1}}}
+\renewcommand{\sectionmark}[1]{\markright{\thesection\enspace\textsc{#1}}}
 \lehead{\mbox{\headmark\hfil}}
 \rohead{\mbox{\hfil{\headmark}}}
 \rofoot{\mbox{\hfil{\thepage}}}
 \lefoot{\mbox{\hfil{\thepage}}}
 \renewcommand{\headfont}{\small}
+
+\renewcommand{\cftchappresnum}{\scshape\MakeTextLowercase}
+\renewcommand{\cftchapfont}{\normalfont}
+\renewcommand{\cftchappagefont}{\normalfont}
+\let\oldchap=\section
+%renewcommand*{\section}{\secdef{\Chap}{\ChapS}}
+\newcommand\ChapS[1]{\oldchap*{#1}}
+% \newcommand\Chap[2][]{%
+%        \ifpdf\oldchap[\texorpdfstring{\spacedlowsmallcaps{#1}}{#1}]{#2}%
+%        \else\oldchap[\spacedlowsmallcaps{#1}]{#2}%
+%        \fi%
+% }%
+\newcommand\Chap[2][]{\oldchap[\textsc{#1}]{#2}}
