@@ -50,6 +50,30 @@
  	\@mkboth{\textsc{\contentsname}}{\textsc{\contentsname}}
 }
 
+\providecommand\phantomsection{}% for hyperref
+\newcommand\listofillustrations{%
+	\begingroup
+		\let\clearpage\relax
+		\let\cleardoublepage\relax
+		\ifgerman
+			\section*{Abbildungen}%
+		\else
+			\section*{Figures}
+		\fi
+		%\phantomsection
+		\addcontentsline{toc}{section}{Figures}%
+		\@starttoc{lof}%
+		\bigskip
+		\ifgerman
+			\section*{Tabellen}%
+		\else
+			\section*{Tables}
+		\fi
+		%\phantomsection
+		\addcontentsline{toc}{section}{Tables}%
+		\@starttoc{lot}
+    \endgroup}
+
 % headlines
 \clearscrheadings
 \setheadsepline{0pt}

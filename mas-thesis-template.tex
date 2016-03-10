@@ -21,8 +21,8 @@
 
 
 %% load bibs
-%\addbibresource{bibliography/common.bib}
-%\addbibresource{bibliography/rfc-shorthands.bib}
+\addbibresource{bibliography/bibliography.bib}
+%\addbibresource{bibliography/more-bibliography.bib}
 
 
 
@@ -50,13 +50,21 @@
 \pagenumbering{arabic}
 \setcounter{page}{1}
 
-%\chapter{Introduction}	% Remove if not dissertation or masterarbeit
+\chapter{Introduction}	% Remove if not dissertation or masterarbeit
 
 \section{Abstract}
 
-This document is an example of how to use this template to write your own thesis. It gives a short summary of the most important aspects and options that define this template.
+This document is a short example of how to use this template to write your own thesis. It gives a brief summary of the most important aspects and options that define this template.
 
 \newpage
+
+
+\section{General}
+
+There are 2 differnt class files available: mas-thesis-sections and mas-thesis-chapters. Use the first if you plan to write a short thesis like a Bachelor Project or a Case Study and ignores chapters for the most past. The latter is better suited for a Master Thesis or Dissertation because it allows you to divide your thesis better. But nothing stops you to devide your Bachelor Thesis in chapters if you think that it will fit.
+
+\newpage
+
 
 \section{Sections}
 
@@ -74,13 +82,14 @@ Large thesis like master thesis and dissertations often get very confusing when 
 
 \newpage
 
+
 \section{Tables and Figures}
 
 In \LaTeX\ you can use tables and figures which will be automatically added to the List of Tables and List of Figures after the Table of Contents.
 
 \subsection{Tables}
 
-\begin{table}[h]
+\begin{table}[ht]
 \begin{center}
 	\begin{tabular}{ l | c | r }
 		1 & 2 & 3 \\
@@ -95,12 +104,23 @@ In \LaTeX\ you can use tables and figures which will be automatically added to t
 
 \subsection{Figures}
 
-\begin{figure}[h]
+Figures should be vector graphics where possible. \LaTeX can parse PDF and EPS out of the box but SVG can also be used with the svg package. If no vector graphics are available and you need to include raster graphics like JPEG, PNG, or BMP, make sure you have a high resolution and high DPI image. Note that the resulting PDF file can be very large when using a lot of raster graphics.
+
+\begin{figure}[ht]
 	\centering
-	\includegraphics[height=6cm]{graphics/demo-graphic.pdf}
+	\includegraphics[height=5.1cm]{graphics/demo-graphic.pdf}
 	\caption{Example of an imported PDF graphic}
 	\label{figure:1}
 \end{figure}
+
+\newpage
+
+\section{Bib\TeX\ and Footnotes}
+
+Every thesis contains references. With Bib\TeX\footnote{\url{http://www.bibtex.org}} you can easily define them in one or more files and load them with \LaTeX\ and cite them at any time.\cite{exampleBook}
+\cleardoublepage
+
+\printbibliography
 
 \makelicensepageCCBYSA
 

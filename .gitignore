@@ -1,3 +1,6 @@
+## Ignore generated PDF file in root
+/*.pdf
+
 ## Core latex/pdflatex auxiliary files:
 *.aux
 *.lof

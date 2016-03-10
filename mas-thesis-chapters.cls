@@ -50,6 +50,30 @@
  	\@mkboth{\textsc{\contentsname}}{\textsc{\contentsname}}
 }
 
+\providecommand\phantomsection{}% for hyperref
+\newcommand\listofillustrations{%
+	\begingroup
+		\let\clearpage\relax
+		\let\cleardoublepage\relax
+		\ifgerman
+			\chapter*{Abbildungen}%
+		\else
+			\chapter*{Figures}
+		\fi
+		%\phantomsection
+		\addcontentsline{toc}{section}{Figures}%
+		\@starttoc{lof}%
+		\bigskip
+		\ifgerman
+			\chapter*{Tabellen}%
+		\else
+			\chapter*{Tables}
+		\fi
+		%\phantomsection
+		\addcontentsline{toc}{section}{Tables}%
+		\@starttoc{lot}
+    \endgroup}
+
 \titleformat{\chapter}[display]
 	{\relax}{\vspace*{-3\baselineskip}\makebox[\linewidth][r]{\color{halfgray}\fontsize{2.7cm}{1em}\selectfont\thechapter}}{0pt}
 	{\raggedright\spacedallcaps}[\normalsize\vspace*{.8\baselineskip}\titlerule]

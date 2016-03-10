@@ -348,6 +348,7 @@
 \captionsetup{format=hang,font=small}
 \setlength{\extrarowheight}{3pt} % increase table row height
 \newcommand{\tableheadline}[1]{\spacedlowsmallcaps{#1}}
+\setlength{\belowcaptionskip}{-10pt} % Less space below captions
 
 
 %%% text
@@ -371,29 +372,7 @@
 
 
 %\makeatletter
-\providecommand\phantomsection{}% for hyperref
-\newcommand\listofillustrations{%
-	\begingroup
-		\let\clearpage\relax
-		\let\cleardoublepage\relax
-		\ifgerman
-			\section*{Abbildungen}%
-		\else
-			\section*{Figures}
-		\fi
-		%\phantomsection
-		\addcontentsline{toc}{section}{Figures}%
-		\@starttoc{lof}%
-		\bigskip
-		\ifgerman
-			\section*{Tabellen}%
-		\else
-			\section*{Tables}
-		\fi
-		%\phantomsection
-		\addcontentsline{toc}{section}{Tables}%
-		\@starttoc{lot}
-    \endgroup}
+
 %\makeatother
 
 %% set pdf parameters (title, ...)
