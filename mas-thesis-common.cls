@@ -418,7 +418,7 @@
 %\AtBeginDocument{\addtocontents{toc}{\protect\vspace{-\cftbeforechapskip}}}
 
 % sections
-\titleformat{\section}{\relax}{\textsc{\thesection}}{1em}{\Large\scshape}
+\titleformat{\section}{\relax}{\textsc{\LARGE\thesection}}{1em}{\LARGE\scshape}
 
 % subsections
 \titleformat{\subsection}{\relax}{\textsc{\MakeTextLowercase{\thesubsection}}}{1em}{\large}

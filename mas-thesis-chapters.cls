@@ -75,8 +75,8 @@
     \endgroup}
 
 \titleformat{\chapter}[display]
-	{\relax}{\vspace*{-3\baselineskip}\makebox[\linewidth][r]{\color{halfgray}\fontsize{2.7cm}{1em}\selectfont\thechapter}}{0pt}
-	{\raggedright\spacedallcaps}[\normalsize\vspace*{.8\baselineskip}\titlerule]
+	{\relax}{\vspace*{-3\baselineskip}\makebox[\linewidth][r]{\color{halfgray}\fontsize{1.5cm}{1em}\selectfont\thechapter}}{0pt}
+	{\Large\raggedright\spacedallcaps}[\normalsize\vspace*{.8\baselineskip}\titlerule]
 
 % headlines
 \clearscrheadings
