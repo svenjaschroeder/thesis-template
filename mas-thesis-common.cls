@@ -16,14 +16,20 @@
 \newcommand{\@degree}{}
 \newcommand{\@location}{}
 \newcommand{\@degreecourse}{}
+\newcommand{\@authoraddress}{}
+\newcommand{\@semester}{}
+\newcommand{\@matrikelnumber}{}
 
 \newcommand{\@stringTitle}{}
 \newcommand{\@stringAuthor}{}
+\newcommand{\@stringMatrikelnumber}{}
 \newcommand{\@stringDegree}{}
 \newcommand{\@stringDegreeCourse}{}
 \newcommand{\@stringSupervisor}{}
-\newcommand{\@stringReviewer}{}
+\newcommand{\@stringReviewerA}{}
+\newcommand{\@stringReviewerB}{}
 \newcommand{\@stringHandoverdate}{}
+\newcommand{\@stringSemester}{}
 
 
 %% German
@@ -37,12 +43,15 @@
 	\renewcommand{\@degreecourse}{<Studiengang per \textbackslash degreecourse setzen>}
 
 	\renewcommand{\@stringTitle}{Titel}
-	\renewcommand{\@stringAuthor}{Verfasser}
+	\renewcommand{\@stringAuthor}{von:}
+	\renewcommand{\@stringMatrikelnumber}{Matrikelnummer:}
 	\renewcommand{\@stringDegree}{Angestrebter akademischer Grad}
 	\renewcommand{\@stringDegreeCourse}{Studiengang}
 	\renewcommand{\@stringSupervisor}{Betreuer}
-	\renewcommand{\@stringReviewer}{Gutachter}
+	\renewcommand{\@stringReviewerA}{Erstgutachter}
+	\renewcommand{\@stringReviewerB}{Zweitgutachter}
 	\renewcommand{\@stringHandoverdate}{Abgabe}
+	\renewcommand{\@stringSemester}{Studiensemester}
 \else
 	\renewcommand{\@supervisor}{<Set supervisor name with \textbackslash supervisor>}
 	\renewcommand{\@reviewerA}{<Set name of 1st supervisor with \textbackslash reviewerA>}
@@ -53,12 +62,15 @@
 	\renewcommand{\@degreecourse}{<Set course with \textbackslash degreecourse>}
 
 	\renewcommand{\@stringTitle}{Title}
-	\renewcommand{\@stringAuthor}{Author}
+	\renewcommand{\@stringAuthor}{by:}
+	\renewcommand{\@stringMatrikelnumber}{Matrikel number:}
 	\renewcommand{\@stringDegree}{Seeked Major}
 	\renewcommand{\@stringDegreeCourse}{Major}
 	\renewcommand{\@stringSupervisor}{Supervisor}
-	\renewcommand{\@stringReviewer}{Reviewer}
+	\renewcommand{\@stringReviewerA}{1st reviewer}
+	\renewcommand{\@stringReviewerB}{2nd reviewer}
 	\renewcommand{\@stringHandoverdate}{Handover date}
+	\renewcommand{\@stringSemester}{Semester}
 \fi
 
 
@@ -82,6 +94,12 @@
 
 \newcommand{\degreecourse}[1]{\renewcommand\@degreecourse{#1}}
 
+\newcommand{\authoraddress}[1]{\renewcommand\@authoraddress{#1}}
+
+\newcommand{\semester}[1]{\renewcommand\@semester{#1}}
+
+\newcommand{\matrikelnumber}[1]{\renewcommand\@matrikelnumber{#1}}
+
 \newcommand{\@handoverdate}{\today}
 \newcommand{\handoverdate}[1]{\renewcommand\@handoverdate{#1}}
 
@@ -95,13 +113,26 @@
 	\includegraphics[height=2cm]{graphics/mas-logo-cmyk.eps}
 }
 
+\newcommand{\eidesstattlicheErklaerung}{
+    \thispagestyle{empty}
+    Ich versichere an Eides statt durch meine Unterschrift, dass ich die vorstehende Arbeit selbst\"andig und ohne fremde Hilfe angefertigt und alle Stellen, die ich w\"ortlich oder ann\"ahernd  w\"ortlich  aus  Ver\"offentlichungen  entnommen  habe,  als  solche  kenntlich  gemacht  habe,  mich  auch  keiner  anderen  als  der  angegebenen  Literatur  oder  sonstiger Hilfsmittel bedient habe. Die Arbeit hat in dieser oder \"ahnlicher Form noch keiner anderen Pr\"ufungsbeh\"orde vorgelegen.
+    
+    \vspace{1.5cm}
+    
+    \noindent\makebox[2.5in]{\hrulefill}\\
+    \small \@author, \@location, den \@handoverdate
+
+	\newpage
+}
+
 \newcommand{\@supervisorreviewer}{
 	\begin{tabular}{lp{8cm}}%\hline
 		\small \@location, \@dateofthesis & ~\newline\newline\newline~ \\ %\hline
-		\small \@stringDegreeCourse: & \small \@degreecourse \\ %\hline
 		\small \@stringSupervisor: & \small \@supervisor \\ %\hline
-		%\small \@stringReviewer: &  \small \@reviewerA \\
-		%\small & \small \@reviewerB \\
+		%\small \@stringReviewerA: &  \small \@reviewerA \\
+		%\small \@stringReviewerB: & \small \@reviewerB \\
+		\small \@stringDegreeCourse: & \small \@degreecourse \\ %\hline
+        \small \@stringSemester: & \small \@semester \\
 	\end{tabular}
 }
 
@@ -122,10 +153,11 @@
 \DeclareOption{bachelorprojekt}{
 	\renewcommand{\@supervisorreviewer}{
 		\begin{tabular}{lp{8cm}}%\hline
-			\small \@stringDegreeCourse: & \small \@degreecourse \\ %\hline
 			\small \@stringSupervisor: & \small \@supervisor \\ %\hline
-			%\small \@stringReviewer: &  \small \@reviewerA \\
-			%\small & \small \@reviewerB \\
+			%\small \@stringReviewerA: &  \small \@reviewerA \\
+			%\small \@stringReviewerB: & \small \@reviewerB \\
+			\small \@stringDegreeCourse: & \small \@degreecourse \\ %\hline
+			\small \@stringSemester: & \small \@semester \\
 		\end{tabular}
 	}
 	
@@ -139,10 +171,10 @@
 \DeclareOption{bachelorarbeit}{
 	\renewcommand{\@supervisorreviewer}{
 		\begin{tabular}{lp{8cm}}%\hline
+			\small \@stringReviewerA: &  \small \@reviewerA \\
+			\small \@stringReviewerB: & \small \@reviewerB \\
 			\small \@stringDegreeCourse: & \small \@degreecourse \\ %\hline
-			\small \@stringSupervisor: & \small \@supervisor \\ %\hline
-			\small \@stringReviewer: &  \small \@reviewerA \\
-			\small & \small \@reviewerB \\
+			\small \@stringSemester: & \small \@semester \\
 		\end{tabular}
 	}
 	
@@ -156,10 +188,11 @@
 \DeclareOption{masterprojekt}{
 	\renewcommand{\@supervisorreviewer}{
 		\begin{tabular}{lp{8cm}}%\hline
-			\small \@stringDegreeCourse: & \small \@degreecourse \\ %\hline
 			\small \@stringSupervisor: & \small \@supervisor \\ %\hline
-			% \small \@stringReviewer: &  \small \@reviewerA \\
-			% \small & \small \@reviewerB \\
+			% \small \@stringReviewerA: &  \small \@reviewerA \\
+			% \small \@stringReviewerB: & \small \@reviewerB \\
+			\small \@stringDegreeCourse: & \small \@degreecourse \\ %\hline
+			\small \@stringSemester: & \small \@semester \\
 		\end{tabular}
 	}
 
@@ -173,10 +206,10 @@
 \DeclareOption{masterarbeit}{
 	\renewcommand{\@supervisorreviewer}{
 		\begin{tabular}{lp{8cm}}%\hline
+			\small \@stringReviewerA: &  \small \@reviewerA \\
+			\small \@stringReviewerB: & \small \@reviewerB \\
 			\small \@stringDegreeCourse: & \small \@degreecourse \\ %\hline
-			\small \@stringSupervisor: & \small \@supervisor \\ %\hline
-			\small \@stringReviewer: &  \small \@reviewerA \\
-			\small & \small \@reviewerB \\
+			\small \@stringSemester: & \small \@semester \\
 		\end{tabular}
 	}
 
@@ -189,10 +222,10 @@
 \DeclareOption{dissertation}{
 	\renewcommand{\@supervisorreviewer}{
 		\begin{tabular}{lp{8cm}}%\hline
+			\small \@stringReviewerA: &  \small \@reviewerA \\
+			\small \@stringReviewerB: & \small \@reviewerB \\
 			\small \@stringDegreeCourse: & \small \@degreecourse \\ %\hline
-			\small \@stringSupervisor: & \small \@supervisor \\ %\hline
-			\small \@stringReviewer: &  \small \@reviewerA \\
-			\small & \small \@reviewerB \\
+			\small \@stringSemester: & \small \@semester \\
 		\end{tabular}
 	}
 
@@ -201,10 +234,11 @@
 \DeclareOption{seminararbeit}{
 	\renewcommand{\@supervisorreviewer}{
 		\begin{tabular}{lp{8cm}}%\hline
-			\small \@stringDegreeCourse: & \small \@degreecourse \\ %\hline
 			\small \@stringSupervisor: & \small \@supervisor \\ %\hline
-			% \small \@stringReviewer: &  \small \@reviewerA \\
-			% \small & \small \@reviewerB \\
+			% \small \@stringReviewerA: &  \small \@reviewerA \\
+			% \small \@stringReviewerB: & \small \@reviewerB \\
+			\small \@stringDegreeCourse: & \small \@degreecourse \\ %\hline
+			\small \@stringSemester: & \small \@semester \\
 		\end{tabular}
 	}
 
@@ -214,10 +248,11 @@
 \DeclareOption{fallstudie}{
 	\renewcommand{\@supervisorreviewer}{
 		\begin{tabular}{lp{8cm}}%\hline
-			\small \@stringDegreeCourse: & \small \@degreecourse \\ %\hline
 			\small \@stringSupervisor: & \small \@supervisor \\ %\hline
 			% \small \@stringReviewer: &  \small \@reviewerA \\
 			% \small & \small \@reviewerB \\
+			\small \@stringDegreeCourse: & \small \@degreecourse \\ %\hline
+			\small \@stringSemester: & \small \@semester \\
 		\end{tabular}
 	}
 	
@@ -248,12 +283,6 @@
 	\RequirePackage{mathtools}
 	\RequirePackage{unicode-math} % fixes math
 	\RequirePackage{lualatex-math} % fixes amsmath/mathtools ... for luatex
-	\setmainfont[SmallCapsFont={Linux Libertine O},SmallCapsFeatures={Letters=SmallCaps},Ligatures=TeX]{Linux Libertine O}
-	\newfontfamily\scfont[Letters=SmallCaps, Ligatures=TeX]{Linux Libertine O}
-	%\RequirePackage{tex-gyre-math}
-	%\setmathfont{texgyrepagellamath-regular.otf} % math font for libertine
-	%\setmathfont{texgyrepagella-math.otf} % math font for libertine
-	\setmathfont[math-style=ISO,bold-style=ISO,vargreek-shape=TeX,Ligatures=TeX]{TeX Gyre Pagella Math}
 	\ifgerman
 	%	\setdefaultlanguage{german}  % polyglossia bugged with "german" on 2016-03-08
 	%	\selectlanguage{german}	  % Using babel instead
@@ -276,8 +305,6 @@
 	\fi
 	\RequirePackage{amsmath}
 	\RequirePackage{mathtools} % instead of amsmath; amssymb and amsthm not included
-	\RequirePackage{libertine}
-	\RequirePackage[libertine]{newtxmath} % math font for libertine
 	\RequirePackage{microtype}
 	\microtypesetup{expansion=false}%
 \fi
@@ -315,7 +342,7 @@
 \RequirePackage{booktabs} % \toprule and other table stuff
 \RequirePackage[titles]{tocloft} % toc style
 %\RequirePackage[disable]{easy-todo} % load after tocloft to avoid option clash, option [disable] to disable!
-\RequirePackage[a4paper]{geometry} % page margins
+\RequirePackage[a4paper,top=25mm,left=25mm,right=50mm,bottom=25mm,headsep=10mm,footskip=12mm]{geometry} % page margins
 \RequirePackage{titlesec}
 \RequirePackage{textcase} % for \MakeTextUppercase
 
@@ -352,7 +379,7 @@
 
 
 %%% text
-\linespread{1.25}
+\linespread{1.5}
 \setlist[description]{labelindent=\parindent}
 \hfuzz=1.36pt
 
@@ -462,6 +489,8 @@
 
 
 \renewcommand*{\maketitle}{%
+	\newgeometry{margin=0cm}
+	
 	\begin{titlepage}
 
 	\@titlelogos
@@ -473,20 +502,18 @@
 	{\Huge\bfseries\uppercase{\@arbeitstyp}}\\[1.5cm]
 
 	{\@stringTitle\\[2mm]
-	\huge\bfseries\textsc{\centering,,\@title''}}\\[2cm]
+	\huge\bfseries\textsc{\centering,,\@title''}}\\Vorgelegt der Fakultät für Wirtschaftswissenschaften\\der Universität Duisburg-Essen (Campus Essen)\\[2cm]
 
 
 	{\@stringAuthor\\
-	\bfseries \@author}\\[2cm]
+	\bfseries \@author}\\\@authoraddress\\\@stringMatrikelnumber~{\bfseries \@matrikelnumber}\\[3cm]
 
-	{\@stringHandoverdate\\
-	\bfseries \@handoverdate}\\[2cm]
-
-	\scalebox{1.1} {
+	%\scalebox{1.1} {
 		\@supervisorreviewer
-	}
+	%}
 	\end{center}
 	\end{titlepage}
+	\restoregeometry
 }
 
 \newcommand{\makelicensepageCCBYSA}{%
@@ -512,8 +539,4 @@
 	\vspace{5mm}
 
 	\noindent\ccbysa
-
-	%\end{center}
-	\vspace{5mm}
-	\noindent Typeset in \f@family{} \f@size{} 11pt Libertine using \ifluatex\LuaLaTeX\else\LaTeX\fi.
 }

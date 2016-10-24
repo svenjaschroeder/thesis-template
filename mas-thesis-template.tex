@@ -1,32 +1,26 @@
 %!TEX program = lualatex
-\documentclass[bachelorarbeit,grey]{mas-thesis-sections}				% Available options:
+\documentclass[masterarbeit,grey]{mas-thesis-sections}				% Available options:
 															% masterarbeit, bachelorarbeit, dissertation,
 															% masterprojekt, bachelorprojekt, seminararbeit,
 															% fallstudie, grey (für Graustufen), english
 
-\author{Autorname}
-\title{Titel der Arbeit}
-\supervisor{Univ.-Prof.~Dipl.-Ing.~Dr.~Betreuer~Name}	% ~ for nicer spaces
+\author{Max~Mustermann}						% ~ for nicer spaces
+\authoraddress{Musterstr.~90\\12345 Essen}
+\matrikelnumber{2251234}
+\title{Titel~der~Arbeit}
+\supervisor{Univ.-Prof.~Dipl.-Ing.~Dr.~Betreuer~Name}
 \reviewerA{Univ.-Prof.~Dr.~Tobias~Hoßfeld}
 \reviewerB{Gutachter~B}
-\degreecourse{Angewandte Informatik - Network Engineering}
+\degreecourse{Angewandte Informatik~-~Network Engineering}
 \location{Essen}
-%\linespread{1.25}										% Line spread (default is 1.25)
-\handoverdate{13.03.2015}
-
-%%%%%%%%%%%%%% 
-%TODO:
-
-%\usepackage{array}
+\handoverdate{23.10.2016}
+\semester{Wintersemester~2016/2017}
 
 
 %% load bibs
 \addbibresource{bibliography/bibliography.bib}
 %\addbibresource{bibliography/more-bibliography.bib}
 
-
-
-%\input{components/info}
 
 %\DeclareBibliographyCategory{ownpub}
 
@@ -36,6 +30,9 @@
 \maketitle				% Title Page
 
 \cleardoublepage
+
+% Only necessary for dissertation, masterarbeit and bachelorarbeit
+\eidesstattlicheErklaerung
 
 \pagenumbering{Roman}
 \tableofcontents		% Table of Contents
@@ -49,6 +46,15 @@
 
 \pagenumbering{arabic}
 \setcounter{page}{1}
+
+% Optional input if the thesis should be split into different files
+
+% \input{components/license.tex}
+% \input{components/toc.tex}
+% \input{components/indices.tex}
+% \input{components/quote.tex}
+% \input{components/abstract.tex}
+% \input{components/acknowledgments.tex}
 
 %\chapter{Introduction}	% Remove if not dissertation or masterarbeit
 
@@ -78,7 +84,7 @@ This is a numerated \texttt{\textbackslash subsection}. There is also a \texttt{
 
 \section{Imports}
 
-Large thesis like master thesis and dissertations often get very confusing when written in single document. You can import other .tex files with the \texttt{\textbackslash include\{other-latex-file.tex\}} command. The formatting will be taken from the master file and the sections, figures, tables, footnotes, citations, etc. are integrated in the context of the master file.
+Large thesis like master thesis and dissertations often get very confusing when written in single document. You can import other .tex files with the\\\texttt{\textbackslash include\{other-latex-file.tex\}} command. The formatting will be taken from the master file and the sections, figures, tables, footnotes, citations, etc. are integrated in the context of the master file.
 
 \newpage
 
@@ -122,53 +128,11 @@ Every thesis contains references. With Bib\TeX\footnote{\url{http://www.bibtex.o
 
 \printbibliography
 
+%
 % An optional license. You can change the CC license in the mas-thesis-common.cls
 % or remove this entirely.
+%
 \makelicensepageCCBYSA
 
 
-% \input{components/license.tex}
-% \input{components/toc.tex}
-% \input{components/indices.tex}
-% \input{components/quote.tex}
-% \input{components/abstract.tex}
-% \input{components/acknowledgments.tex}
-
-%\newpage
-%\listoftodos
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% \cleardoublepage
-% \pagenumbering{arabic}
-
-% \subimport{chapters/01-intro/}{introduction}
-% \subimport{chapters/04-mobilenets/}{mobilenetworks}
-% \subimport{chapters/041-mobilenetsmeasuring/}{mobilenetworkevaluation}
-% \subimport{chapters/03-streaming/}{streaming}
-% \subimport{chapters/05-mobilestreaming/}{mobilestreaming}
-% \subimport{chapters/06-mobilestreamingmeasurements/}{measurements}
-% \subimport{chapters/99-conclusion/}{conclusion}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% \input{components/vita.tex}
-
-% \addtocategory{ownpub}{metzger2012research, oechsner2009pushing,metzger2014lossmodel,raf2013sensorium, cs3516, metzger2014jcnc, rafetseder2011explyt, 6229739, metzger2011delivery, cs3518}
-% \nocite{oechsner2009pushing,metzger2014lossmodel,raf2013sensorium,cs3516} % temporary import of otherwise unreferences own publications
-
-
-% \defbibnote{ownpubdisclaimer}{Parts of the research conducted in this thesis is based on these already published publications. }
-% \printbibliography[title=Own Publications, category=ownpub, heading=bibintoc, prenote=ownpubdisclaimer]
-
-
-% %\section*{Own Publications}
-% %\addcontentsline{toc}{chapter}{Own Publications}%
-
-% %\printbibliography[category=ownpub]
-
-% \input{components/sourcecode.tex}
-% %\printbibliography[notkeyword=ownpub, heading=bibintoc]
-% \printbibliography[notcategory=ownpub, heading=bibintoc]
 \end{document}
