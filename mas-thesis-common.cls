@@ -283,14 +283,12 @@
 	\RequirePackage{mathtools}
 	\RequirePackage{unicode-math} % fixes math
 	\RequirePackage{lualatex-math} % fixes amsmath/mathtools ... for luatex
+	\RequirePackage{polyglossia} % babel replacement for use with fontspec
 	\ifgerman
-	%	\setdefaultlanguage{german}  % polyglossia bugged with "german" on 2016-03-08
-	%	\selectlanguage{german}	  % Using babel instead
-	%	\setotherlanguage[variant=american]{english}
-		\RequirePackage[T1]{fontenc}
-		\RequirePackage[ngerman]{babel}
+		\setdefaultlanguage{german}
+		\selectlanguage{german}
+		\setotherlanguage[variant=american]{english}
 	\else
-		\RequirePackage{polyglossia} % babel replacement for use with fontspec
 		\setdefaultlanguage[variant=american]{english}
 		\selectlanguage[variant=american]{english}
 		\setotherlanguage{german}
