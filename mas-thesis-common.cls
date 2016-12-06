@@ -487,7 +487,7 @@
 
 
 \renewcommand*{\maketitle}{%
-	\newgeometry{margin=0cm}
+	\newgeometry{top=15mm,left=10mm,right=10mm,bottom=0mm,headsep=0mm,footskip=0mm}
 	
 	\begin{titlepage}
 
