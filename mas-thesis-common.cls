@@ -283,6 +283,9 @@
 	\RequirePackage{mathtools}
 	\RequirePackage{unicode-math} % fixes math
 	\RequirePackage{lualatex-math} % fixes amsmath/mathtools ... for luatex
+	\setmainfont[SmallCapsFont={Linux Libertine O},SmallCapsFeatures={Letters=SmallCaps},Ligatures=TeX]{Linux Libertine O}
+	\newfontfamily\scfont[Letters=SmallCaps, Ligatures=TeX]{Linux Libertine O}
+	\setmathfont[math-style=ISO,bold-style=ISO,vargreek-shape=TeX,Ligatures=TeX]{TeX Gyre Pagella Math}
 	\RequirePackage{polyglossia} % babel replacement for use with fontspec
 	\ifgerman
 		\setdefaultlanguage{german}
@@ -295,6 +298,8 @@
 	\fi
 \else
 	\RequirePackage[utf8]{inputenc}
+	\usepackage{libertine}
+	\usepackage[libertine]{newtxmath} % math font for libertine
 	\RequirePackage[T1]{fontenc}
 	\ifgerman
 		\RequirePackage[ngerman]{babel}
