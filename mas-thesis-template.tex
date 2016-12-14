@@ -41,6 +41,9 @@
 \eidesstattlicheErklaerung
 
 \pagenumbering{Roman}
+\phantomsection
+% Set to either section or chapter depending on chosen template
+\addcontentsline{toc}{section}{Contents}%
 \tableofcontents		% Table of Contents
 
 \cleardoublepage
@@ -49,6 +52,12 @@
 
 
 \cleardoublepage
+
+\newpage
+\begingroup % printglossar{y,ies} forces a cleardoublepage between glossaries and after it, we supress this here
+	\let\clearpage\relax
+	\printglossaries
+\endgroup
 
 \pagenumbering{arabic}
 \setcounter{page}{1}

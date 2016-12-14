@@ -51,27 +51,28 @@
  	\@mkboth{\textsc{\contentsname}}{\textsc{\contentsname}}
 }
 
-\providecommand\phantomsection{}% for hyperref
+%\phantomsection% for hyperref
 \newcommand\listofillustrations{%
 	\begingroup
 		\let\clearpage\relax
 		\let\cleardoublepage\relax
+		\phantomsection
+		\addcontentsline{toc}{section}{Figures}%
 		\ifgerman
 			\section*{Abbildungen}%
 		\else
 			\section*{Figures}
 		\fi
-		%\phantomsection
-		\addcontentsline{toc}{section}{Figures}%
+
 		\@starttoc{lof}%
 		\bigskip
+		\phantomsection
+		\addcontentsline{toc}{section}{Tables}%
 		\ifgerman
 			\section*{Tabellen}%
 		\else
 			\section*{Tables}
 		\fi
-		%\phantomsection
-		\addcontentsline{toc}{section}{Tables}%
 		\@starttoc{lot}
     \endgroup}
 
