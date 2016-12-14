@@ -278,14 +278,14 @@
 \ifluatex
 	\RequirePackage{fontspec}
 	\RequirePackage{microtype}
-	%\RequirePackage{amsmath}
 	\RequirePackage{amssymb}
 	\RequirePackage{mathtools}
 	\RequirePackage{unicode-math} % fixes math
 	\RequirePackage{lualatex-math} % fixes amsmath/mathtools ... for luatex
-	\setmainfont[SmallCapsFont={Linux Libertine O},SmallCapsFeatures={Letters=SmallCaps},Ligatures=TeX]{Linux Libertine O}
-	\newfontfamily\scfont[Letters=SmallCaps, Ligatures=TeX]{Linux Libertine O}
+	\setmainfont{Linux Libertine O}
+	\setsansfont{Linux Biolinum O}
 	\setmathfont[math-style=ISO,bold-style=ISO,vargreek-shape=TeX,Ligatures=TeX]{TeX Gyre Pagella Math}
+
 	\RequirePackage{polyglossia} % babel replacement for use with fontspec
 	\ifgerman
 		\setdefaultlanguage{german}
@@ -492,8 +492,8 @@
 
 
 \renewcommand*{\maketitle}{%
-	\newgeometry{top=15mm,left=10mm,right=10mm,bottom=0mm,headsep=0mm,footskip=0mm}
-	
+	\thispagestyle{empty}
+
 	\begin{titlepage}
 
 	\@titlelogos
@@ -505,7 +505,7 @@
 	{\Huge\bfseries\uppercase{\@arbeitstyp}}\\[1.5cm]
 
 	{\@stringTitle\\[2mm]
-	\huge\bfseries\textsc{\centering,,\@title''}}\\Vorgelegt der Fakultät für Wirtschaftswissenschaften\\der Universität Duisburg-Essen (Campus Essen)\\[2cm]
+	\huge\bfseries\textsc{\centering\@title}}\\Vorgelegt der Fakultät für Wirtschaftswissenschaften\\der Universität Duisburg-Essen (Campus Essen)\\[2cm]
 
 
 	{\@stringAuthor\\

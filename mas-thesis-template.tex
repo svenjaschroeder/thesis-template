@@ -1,4 +1,4 @@
-%!TEX program = pdflatex
+%!TEX program = lualatex
 \documentclass[masterarbeit,grey]{mas-thesis-sections}				% Available options:
 															% masterarbeit, bachelorarbeit, dissertation,
 															% masterprojekt, bachelorprojekt, seminararbeit,
@@ -21,7 +21,6 @@
 \addbibresource{bibliography/bibliography.bib}
 %\addbibresource{bibliography/more-bibliography.bib}
 
-
 %\DeclareBibliographyCategory{ownpub}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -29,7 +28,14 @@
 
 \maketitle				% Title Page
 
+%
+% An optional license. You can change the CC license in the mas-thesis-common.cls
+% or remove this entirely.
+%
+\makelicensepageCCBYSA
+
 \cleardoublepage
+
 
 % Only necessary for dissertation, masterarbeit and bachelorarbeit
 \eidesstattlicheErklaerung
@@ -126,13 +132,8 @@ Figures should be vector graphics where possible. \LaTeX can parse PDF and EPS o
 Every thesis contains references. With Bib\TeX\footnote{\url{http://www.bibtex.org}} you can easily define them in one or more files and load them with \LaTeX\ and cite them at any time.\cite{exampleBook}
 \cleardoublepage
 
-\printbibliography
+\printbibliography[heading=bibintoc]
 
-%
-% An optional license. You can change the CC license in the mas-thesis-common.cls
-% or remove this entirely.
-%
-\makelicensepageCCBYSA
 
 
 \end{document}

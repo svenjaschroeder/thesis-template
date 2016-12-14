@@ -30,6 +30,7 @@
 %\loadglsentries{components/definitions}
 %\loadglsentries{components/acronyms}
 
+
 %% glossaries: define a custom tree-based style with user1-key support for urls and other references
 % TODO indent the par!
 \newglossarystyle{treewithref}{
