@@ -340,7 +340,7 @@
 \RequirePackage{booktabs} % \toprule and other table stuff
 \RequirePackage[titles]{tocloft} % toc style
 %\RequirePackage[disable]{easy-todo} % load after tocloft to avoid option clash, option [disable] to disable!
-\RequirePackage[a4paper,top=25mm,left=25mm,right=50mm,bottom=25mm,headsep=10mm,footskip=12mm]{geometry} % page margins
+\RequirePackage[a4paper]{geometry}
 \RequirePackage{titlesec}
 \RequirePackage{textcase} % for \MakeTextUppercase
 
@@ -377,7 +377,7 @@
 
 
 %%% text
-\linespread{1.5}
+\linespread{1.05}
 \setlist[description]{labelindent=\parindent}
 \hfuzz=1.36pt
 
