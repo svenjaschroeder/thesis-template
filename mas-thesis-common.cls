@@ -306,8 +306,8 @@
 	\else
 		\RequirePackage[american]{babel}
 	\fi
-	\RequirePackage{amsmath}
 	\RequirePackage{mathtools} % instead of amsmath; amssymb and amsthm not included
+	\RequirePackage{amssymb}
 	\RequirePackage{microtype}
 	\microtypesetup{expansion=false}%
 \fi
@@ -336,8 +336,8 @@
 \RequirePackage{xspace} % ?
 \RequirePackage{algorithmic}
 \RequirePackage{algorithm}
-\RequirePackage{numprint} % fancy numbers
-\npstyleenglish % numprint style, fraction and 1.000 separation
+%\RequirePackage{numprint} % fancy numbers
+%\npstyleenglish % numprint style, fraction and 1.000 separation
 \RequirePackage[24hr,iso]{datetime}
 %\RequirePackage{gitinfo}
 %\RequirePackage[multiple,stable]{footmisc} % incompatible with hyperref
@@ -398,6 +398,7 @@
 \setcounter{tocdepth}{2}
 \setcounter{secnumdepth}{3}
 
+
 %% set pdf parameters (title, ...)
 \AtBeginDocument{
   \hypersetup{
@@ -408,7 +409,6 @@
 
 
 %% settings imported and adapted from classicthesis
-\DeclareRobustCommand{\spacedallcaps}[1]{\textls[160]{\MakeTextUppercase{#1}}}%
 %\usepackage[maxfloats=48]{morefloats} % enable this if too many unprocessed floats are happening
 \clubpenalty = 10000 % Disable single lines at the start of a paragraph (Schusterjungen)
 \widowpenalty = 10000 % Disable single lines at the end of a paragraph (Hurenkinder)

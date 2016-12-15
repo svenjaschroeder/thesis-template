@@ -85,3 +85,6 @@
 \rofoot{\mbox{\hfil{\thepage}}}
 \lefoot{\mbox{\hfil{\thepage}}}
 \renewcommand{\headfont}{\small}
+
+% start section on a new page
+\newcommand{\sectionbreak}{\clearpage}
