@@ -40,14 +40,14 @@
 % Only necessary for dissertation, masterarbeit and bachelorarbeit
 \eidesstattlicheErklaerung
 
+\cleardoublepage
+
 \pagenumbering{Roman}
 \phantomsection
 % Set to either section or chapter depending on chosen template
 \addcontentsline{toc}{section}{Contents}%
 \tableofcontents		% Table of Contents
-
-\cleardoublepage
-
+\newpage
 \listofillustrations	% List of Figures and List of Tables
 
 
@@ -73,7 +73,9 @@
 
 %\chapter{Introduction}	% Remove if not dissertation or masterarbeit
 
-\section{Abstract}
+\section*{Abstract}
+\phantomsection
+\addcontentsline{toc}{section}{Abstract}%
 
 This document is a short example of how to use this template to write your own thesis. It gives a brief summary of the most important aspects and options that define this template.
 
@@ -82,7 +84,7 @@ This document is a short example of how to use this template to write your own t
 
 \section{General}
 
-There are 2 differnt class files available: mas-thesis-sections and mas-thesis-chapters. Use the first if you plan to write a short thesis like a Bachelor Project or a Case Study and ignores chapters for the most past. The latter is better suited for a Master Thesis or Dissertation because it allows you to divide your thesis better. But nothing stops you to devide your Bachelor Thesis in chapters if you think that it will fit.
+There are 2 different class files available: mas-thesis-sections and mas-thesis-chapters. Use the first if you plan to write a short thesis like a Bachelor Project or a Case Study and ignores chapters for the most past. The latter is better suited for a Master Thesis or Dissertation because it allows you to divide your thesis better. But nothing stops you to divide your Bachelor Thesis in chapters if you think that it will fit.
 
 \newpage
 
