@@ -1,5 +1,5 @@
 ## Ignore generated PDF file in root
-/*.pdf
+master-thesis-template.pdf
 
 ## Core latex/pdflatex auxiliary files:
 *.aux
