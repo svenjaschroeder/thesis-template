@@ -435,7 +435,7 @@
 \titleformat{\section}{\relax}{\bfseries\textsc{\LARGE\thesection}}{1em}{\bfseries\LARGE\scshape}
 
 % subsections
-\titleformat{\subsection}{\relax}{\normalsize\thesubsection}{1em}{\normalsize\itshape}
+\titleformat{\subsection}{\relax}{\large\thesubsection}{1em}{\large\itshape}
 
 % subsubsections
 \titleformat{\subsubsection}{\relax}{\normalsize\thesubsubsection}{1em}{\normalsize\itshape}
