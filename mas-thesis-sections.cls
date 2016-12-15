@@ -13,7 +13,7 @@
 
 \LoadClass[openright,titlepage,numbers=noenddot,headinclude,footinclude=true,cleardoublepage=empty,BCOR=5mm,paper=A4,fontsize=11pt,twoside]{scrartcl}
 
-\ProvidesClass{mas-thesis-sections}[2015/08/28 Uni-DUE MAS thesis class]
+\ProvidesClass{mas-thesis-sections}[2016/12/15 Uni-DUE MAS thesis class]
 
 \input{mas-thesis-common.cls}
 

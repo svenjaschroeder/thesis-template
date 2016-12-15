@@ -314,7 +314,7 @@
 
 \RequirePackage[hyphens]{url}
 \RequirePackage{scrhack} % fix komascript floattolist issues
-\RequirePackage[defernumbers=true, style=alphabetic, citestyle=alphabetic, firstinits=true, backend=biber, doi=true, url=true, block=ragged, maxnames=6]{biblatex} % 
+\RequirePackage[defernumbers=true, style=alphabetic, citestyle=alphabetic, firstinits=true, backend=biber, doi=true, url=true, block=ragged, maxnames=6]{biblatex} %
 \RequirePackage{csquotes} % context sensitive quotations; especially for use with biblatex and biber
 \RequirePackage{listings} % ?
 \RequirePackage[scale=3]{ccicons} % creative commons icons
@@ -397,23 +397,14 @@
 %%% toc
 \setcounter{tocdepth}{2}
 \setcounter{secnumdepth}{3}
-%\setlength{\cftbeforechapskip}{0.3em}
-%\setlength{\cftbeforesecskip}{0.1em}
-
-
-%\makeatletter
-
-%\makeatother
 
 %% set pdf parameters (title, ...)
-%\makeatletter
 \AtBeginDocument{
   \hypersetup{
     pdftitle = {\@title},
     pdfauthor = {\@author}
   }
 }
-%\makeatother
 
 
 %% settings imported and adapted from classicthesis
@@ -423,6 +414,7 @@
 \widowpenalty = 10000 % Disable single lines at the end of a paragraph (Hurenkinder)
 \displaywidowpenalty = 10000 % formulas
 
+
 % Graffiti as in GKP's book "Concrete Mathematics"
 % thanks to Lorenzo Pantieri and Enrico Gregorio
 \def\graffito@setup{%
@@ -431,57 +423,40 @@
    \tolerance=2000 \hyphenpenalty=300 \exhyphenpenalty=300%
    \doublehyphendemerits=100000%
    \finalhyphendemerits=\doublehyphendemerits}
-%\DeclareRobustCommand{\graffito}[1]{\marginpar%
-% [\graffito@setup\raggedleft\hspace{0pt}{#1}]%
-% {\graffito@setup\raggedright\hspace{0pt}{#1}}}
 \let\oldmarginpar\marginpar
 \renewcommand{\marginpar}[1]{\oldmarginpar%
  [\graffito@setup\raggedleft\hspace{0pt}{#1}]%
  {\graffito@setup\raggedright\hspace{0pt}{#1}}}
-              
-  %    \DeclareRobustCommand{\fixBothHeadlines}[2]{} % <--- ToDo
-    % hack to get the content headlines right (thanks, Lorenzo!)
 
 
-%% titlesec settings
-% section heading styles     
-%\AtBeginDocument{\addtocontents{toc}{\protect\vspace{-\cftbeforechapskip}}}
+
 
 % sections
-\titleformat{\section}{\relax}{\textsc{\LARGE\thesection}}{1em}{\LARGE\scshape}
+\titleformat{\section}{\relax}{\bfseries\textsc{\LARGE\thesection}}{1em}{\bfseries\LARGE\scshape}
 
 % subsections
-\titleformat{\subsection}{\relax}{\textsc{\MakeTextLowercase{\thesubsection}}}{1em}{\large}
+\titleformat{\subsection}{\relax}{\normalsize\thesubsection}{1em}{\normalsize\itshape}
 
 % subsubsections
-\titleformat{\subsubsection}{\relax}{\textsc{\MakeTextLowercase{\thesubsubsection}}}{1em}{\normalsize}
+\titleformat{\subsubsection}{\relax}{\normalsize\thesubsubsection}{1em}{\normalsize\itshape}
 
 % paragraphs
 \titleformat{\paragraph}[hang]{\normalfont\normalsize}{\theparagraph}{0pt}{\scshape}
 
 % descriptionlabels
-\renewcommand{\descriptionlabel}[1]{\hspace*{\labelsep}\textsc{#1}}   % spacedlowsmallcaps textit textsc                  
+\renewcommand{\descriptionlabel}[1]{\hspace*{\labelsep}\textsc{#1}}   % spacedlowsmallcaps textit textsc
 % spacing
 \titlespacing*{\section}{0pt}{1\baselineskip}{1.2\baselineskip}
-\titlespacing*{\section}{0pt}{1.25\baselineskip}{1\baselineskip} 
+\titlespacing*{\section}{0pt}{1.25\baselineskip}{1\baselineskip}
 \titlespacing*{\subsection}{0pt}{1.25\baselineskip}{1\baselineskip}
 \titlespacing*{\paragraph}{0pt}{1\baselineskip}{1\baselineskip}
 
 
-%% toc style with tocloft package
-%\renewcommand{\cftchappresnum}{\scshape\MakeTextLowercase}%
-%\renewcommand{\cftchapfont}{\normalfont}%
-%\renewcommand{\cftchappagefont}{\normalfont}%
-%\let\oldchap=\section
-%\renewcommand*{\section}{\secdef{\Chap}{\ChapS}}
-%\newcommand\ChapS[1]{\oldchap*{#1}}%
-% \newcommand\Chap[2][]{%
-%        \ifpdf\oldchap[\texorpdfstring{\spacedlowsmallcaps{#1}}{#1}]{#2}%
-%        \else\oldchap[\spacedlowsmallcaps{#1}]{#2}%
-%        \fi%
-% }%
-%\newcommand\Chap[2][]{\oldchap[\textsc{#1}]{#2}}%
-%\textsc{foo} {\scshape bar}
+%% tocloft toc manipulations
+% specifically: smallcaps and dotted lines for sections
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+\renewcommand{\cftsecfont}{\scshape}
+
 
 \deffootnote{0em}{0em}{\thefootnotemark\hspace*{.5em}}
 
@@ -502,7 +477,7 @@
 
 	\vskip 1.5cm
 
-	{\Huge\bfseries\uppercase{\@arbeitstyp}}\\[1.5cm]
+	{\Huge\bfseries\textsc{\@arbeitstyp}}\\[1.5cm]
 
 	{\@stringTitle\\[2mm]
 	\huge\bfseries\textsc{\centering\@title}}\\Vorgelegt der Fakultät für Wirtschaftswissenschaften\\der Universität Duisburg-Essen (Campus Essen)\\[2cm]
@@ -522,16 +497,7 @@
 \newcommand{\makelicensepageCCBYSA}{%
 	\newpage
 	\thispagestyle{empty}
-	%\null
-	% \begin{center}
-	% {\color{red}
-	% Version Information: \\
-	% commit \gitAbbrevHash \\
-	% from \gitAuthorIsoDate 
-	% }
-	% \end{center}
 	~\vfill
-	%\begin{center}
 	\noindent\textcopyright~\the\year~by \@author
 
 	\vspace{5mm}
