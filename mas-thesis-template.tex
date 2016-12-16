@@ -1,4 +1,4 @@
-%!TEX program = pdflatex
+%!TEX program = lualatex
 \documentclass[masterarbeit, grey, english]{mas-thesis-sections}	% Available options:
 															% masterarbeit, bachelorarbeit, dissertation,
 															% masterprojekt, bachelorprojekt, seminararbeit,
@@ -9,19 +9,20 @@
 \matrikelnumber{2251234}
 \title{Titel~der~Arbeit}
 \supervisor{Univ.-Prof.~Dipl.-Ing.~Dr.~Betreuer~Name}
-\reviewerA{Univ.-Prof.~Dr.~Tobias~Hoßfeld}
-\reviewerB{Gutachter~B}
+\reviewerA{Reviewer~A}
+\reviewerB{Reviewer~B}
 \degreecourse{Angewandte Informatik~---~Network Engineering}
 \location{Essen}
 \handoverdate{23.10.2016}
 \semester{Wintersemester~2016/2017}
 
+%% load glossaries and acronyms
+\loadglsentries{acronyms.tex}
 
 %% load bibs
 \addbibresource{bibliography/bibliography.bib}
 %\addbibresource{bibliography/more-bibliography.bib}
 
-%\DeclareBibliographyCategory{ownpub}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
@@ -155,9 +156,11 @@ In \LaTeX\ you can use tables and figures which will be automatically added to t
 \end{center}
 \end{table}
 
-\subsection{Figures}
+\subsection{Figures, But Also Acronyms!}
 
 Figures should be vector graphics where possible. \LaTeX can parse PDF and EPS out of the box but SVG can also be used with the svg package. If no vector graphics are available and you need to include raster graphics like JPEG, PNG, or BMP, make sure you have a high resolution and high DPI image. Note that the resulting PDF file can be very large when using a lot of raster graphics.
+
+And don't forget, that you can (and really should use) acronyms all over the place. Like this: \gls{AQM}, \glspl{ANOVA}, \acrshort{ASN.1}. They should be automatically indexed as well.
 
 \begin{figure}[ht]
 	\centering
