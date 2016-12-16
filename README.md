@@ -6,7 +6,7 @@ The options are explained in the example `.tex` files.
 
 ## Required Software
 
-The latest [https://www.tug.org/texlive/](Tex Live) distribution for your platform is required. Try to use the official builds, and not the ones that may come with your platforms package management system, as they may be outdated and/or incomplete. Using any other TeX distribution (e.g. MiKTeX) might cause issues as well.
+The latest [Tex Live](https://www.tug.org/texlive/) distribution for your platform is required. Try to use the official builds, and not the ones that may come with your platforms package management system, as they may be outdated and/or incomplete. Using any other TeX distribution (e.g. MiKTeX) might cause issues as well.
 
 ## Generate the PDF
 
