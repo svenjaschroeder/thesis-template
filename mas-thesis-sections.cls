@@ -49,7 +49,7 @@
  	\@mkboth{\textsc{\contentsname}}{\textsc{\contentsname}}
 }
 
-%\phantomsection% for hyperref
+
 \newcommand\listofillustrations{%
 	\begingroup
 		\let\clearpage\relax
@@ -86,3 +86,16 @@
 
 % start section on a new page
 \newcommand{\sectionbreak}{\clearpage}
+
+
+
+%% tocloft toc manipulations
+% specifically: smallcaps and dotted lines for sections
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+\renewcommand{\cftsecfont}{\scshape}
+
+
+
+
+
+

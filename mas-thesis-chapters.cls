@@ -49,33 +49,43 @@
  	\@mkboth{\textsc{\contentsname}}{\textsc{\contentsname}}
 }
 
-\providecommand\phantomsection{}% for hyperref
 \newcommand\listofillustrations{%
 	\begingroup
 		\let\clearpage\relax
 		\let\cleardoublepage\relax
+		\phantomsection
+		\addcontentsline{toc}{chapter}{Figures}%
 		\ifgerman
 			\chapter*{Abbildungen}%
 		\else
 			\chapter*{Figures}
 		\fi
-		%\phantomsection
-		\addcontentsline{toc}{section}{Figures}%
+
 		\@starttoc{lof}%
 		\bigskip
+		\phantomsection
+		\addcontentsline{toc}{chapter}{Tables}%
 		\ifgerman
 			\chapter*{Tabellen}%
 		\else
 			\chapter*{Tables}
 		\fi
-		%\phantomsection
-		\addcontentsline{toc}{section}{Tables}%
 		\@starttoc{lot}
     \endgroup}
 
-\titleformat{\chapter}[display]
-	{\relax}{\vspace*{-3\baselineskip}\makebox[\linewidth][r]{\color{halfgray}\fontsize{1.5cm}{1em}\selectfont\thechapter}}{0pt}
-	{\Large\raggedright\spacedallcaps}[\normalsize\vspace*{.8\baselineskip}\titlerule]
+
+% titlesec chapter format
+\titleformat{\chapter} % {⟨command⟩}
+	[display] % [⟨shape⟩]
+	{\relax} % {⟨format⟩}
+	{\flushright
+     \begin{tikzpicture}
+       \draw[fill,color=black] (0,0) rectangle (2cm,2cm);
+       \draw[color=white] (1cm,1cm) node { \fontsize{1cm}{1em}\selectfont\thechapter };
+     \end{tikzpicture}} % {⟨label⟩}
+	{0pt} % {⟨sep⟩}
+	{\Huge\raggedright\scshape} % {⟨before-code⟩}
+	[\normalsize\vspace*{.8\baselineskip}\titlerule] % [⟨after-code⟩]
 
 % headlines
 \clearscrheadings
@@ -87,15 +97,10 @@
 \lefoot{\mbox{\hfil{\thepage}}}
 \renewcommand{\headfont}{\small}
 
-\renewcommand{\cftchappresnum}{\scshape\MakeTextLowercase}
-\renewcommand{\cftchapfont}{\normalfont}
-\renewcommand{\cftchappagefont}{\normalfont}
-\let\oldchap=\section
-%renewcommand*{\section}{\secdef{\Chap}{\ChapS}}
-\newcommand\ChapS[1]{\oldchap*{#1}}
-% \newcommand\Chap[2][]{%
-%        \ifpdf\oldchap[\texorpdfstring{\spacedlowsmallcaps{#1}}{#1}]{#2}%
-%        \else\oldchap[\spacedlowsmallcaps{#1}]{#2}%
-%        \fi%
-% }%
-\newcommand\Chap[2][]{\oldchap[\textsc{#1}]{#2}}
+
+
+
+%% tocloft toc manipulations
+% specifically: smallcaps and dotted lines for sections
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+\renewcommand{\cftchapfont}{\scshape}

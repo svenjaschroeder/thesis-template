@@ -1,0 +1,196 @@
+%!TEX program = lualatex
+\documentclass[masterthesis, english]{mas-thesis-chapters} % Available options:
+															     % masterthesis, bachelorthesis, dissertation
+															     % grey (use greyscale titlepage logo instead), english
+
+\author{Max~Mustermann}						% ~ for nicer spaces
+\authoraddress{Musterstr.~90\\12345 Essen}
+\matrikelnumber{2251234}
+\title{Titel~der~Arbeit}
+\supervisor{Univ.-Prof.~Dipl.-Ing.~Dr.~Betreuer~Name}
+\reviewerA{Reviewer~A}
+\reviewerB{Reviewer~B}
+\degreecourse{Angewandte Informatik~---~Network Engineering}
+\location{Essen}
+\handoverdate{23.10.2016}
+\semester{Wintersemester~2016/2017}
+
+%% load glossaries and acronyms
+\loadglsentries{acronyms.tex}
+
+%% load bibs
+\addbibresource{bibliography/bibliography.bib}
+%\addbibresource{bibliography/more-bibliography.bib}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+\maketitle				% Title Page
+
+%
+% An optional license. You can change the CC license in the mas-thesis-common.cls
+% or remove this entirely.
+%
+\makelicensepageCCBYSA
+
+\cleardoublepage
+
+
+% Only necessary for dissertation, masterarbeit and bachelorarbeit
+\eidesstattlicheErklaerung
+
+\cleardoublepage
+
+\pagenumbering{Roman}
+\phantomsection
+% Set to either section or chapter depending on chosen template
+\addcontentsline{toc}{chapter}{Contents}%
+\tableofcontents		% Table of Contents
+\newpage
+\listofillustrations	% List of Figures and List of Tables
+
+
+\cleardoublepage
+
+\newpage
+\begingroup % printglossar{y,ies} forces a cleardoublepage between glossaries and after it, we supress this here
+	\let\clearpage\relax
+	\printglossaries
+\endgroup
+
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+% Optional input if the thesis should be split into different files
+
+% \input{components/license.tex}
+% \input{components/toc.tex}
+% \input{components/indices.tex}
+% \input{components/quote.tex}
+% \input{components/abstract.tex}
+% \input{components/acknowledgments.tex}
+
+%\chapter{Introduction}	% Remove if not dissertation or masterarbeit
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter*{Abstract}
+%\phantomsection
+\addcontentsline{toc}{chapter}{Abstract}%
+
+This document is a short example of how to use this template to write your own thesis. It gives a brief summary of the most important aspects and options that define this template.
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{General}
+
+There are 2 different class files available: mas-thesis-sections and mas-thesis-chapters. Use the first if you plan to write a short thesis like a Bachelor Project or a Case Study and ignores chapters for the most past. The latter is better suited for a Master Thesis or Dissertation because it allows you to divide your thesis better. But nothing stops you to divide your Bachelor Thesis in chapters if you think that it will fit.
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Chapters and Sections}
+
+This is an example of a numbered chapter. The section number increases automatically and does not need to be stated. To use a unnumbered section (a.k.a. a special section), just use \texttt{\textbackslash section* \{Name of unnumbered chapter\}}. The hierarchy is chapter $\rightarrow$ section $\rightarrow$ subsection $\rightarrow$ subsubsection $\rightarrow$ paragraph.
+
+\section{Section}
+
+You guessed it, this is one of those infamous \textit{sections}.
+
+\subsection{Subsections}
+
+This is a numerated \texttt{\textbackslash subsection}. There is also a \texttt{\textbackslash subsubsection} command. To create an unnumbered subsection, just add * like needed for sections.
+
+\subsubsection{Subsubsection}
+
+And while we're at it, here's a sub-sub-section for you!
+
+\paragraph{A paragraph} is you! But there are no dragons, sorry about that.
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Imports, Media, Floats and Then Some}
+
+Large, theses like master theses, and dissertations often get very confusing when written in single document. You can import other .tex files with the\\\texttt{\textbackslash include\{other-latex-file.tex\}} command. The style is inherited from the master file and the sections, figures, tables, footnotes, citations, etc. are integrated in the context of the master file.
+
+\section{Tables and Figures (and Equations!)}
+
+In \LaTeX\ you can use tables and figures which will be automatically added to the List of Tables and List of Figures after the Table of Contents.
+
+\begin{equation*}
+        f(x) = 
+        \begin{dcases}
+            \frac{1}{\sigma x \sqrt{2 \pi}} e^{ - \frac{(\ln(x) - \mu)^2}{2 \sigma^2}} & , x > 0 \\
+            0 & , x \leq 0
+        \end{dcases}
+\end{equation*}
+
+\begin{align}
+	y &= 1.1429124 \cdot \pi \\
+	x &= 1000000
+\end{align}
+
+\subsection{Tables}
+
+\begin{table}[ht]
+\begin{center}
+        \begin{tabular}{
+            S[table-column-width=10mm]
+            S[table-format=-1.6]
+            S[table-format=-1.6]
+            S[table-format=-1.6]
+            S[table-format=-1.6]
+            S[table-format=-1.6]
+            S[table-format=-1.6]}
+            \toprule
+            {Quantile} & 0.05 & 0.1 & 0.25 & 0.5 & 0.75 & 0.9 \\ 
+            \midrule
+             & -1.6448536 & -1.2815516 & -0.6744898 & 0.0000000 & 0.6744898 & 1.2815516 \\ 
+             & -1.6448536 & -1.2815516 & -0.6744898 & 0.0000000 & 0.6744898 & 1.2815516 \\ 
+             & -1.6448536 & -1.2815516 & -0.6744898 & 0.0000000 & 0.6744898 & 1.2815516 \\ 
+             \bottomrule
+        \end{tabular}
+	\caption{Example of a table}
+	\label{table:1}
+\end{center}
+\end{table}
+
+\subsection{Figures, But Also Acronyms!}
+
+Figures should be vector graphics where possible. \LaTeX can parse PDF and EPS out of the box but SVG can also be used with the svg package. If no vector graphics are available and you need to include raster graphics like JPEG, PNG, or BMP, make sure you have a high resolution and high DPI image. Note that the resulting PDF file can be very large when using a lot of raster graphics.
+
+And don't forget, that you can (and really should use) acronyms all over the place. Like this: \gls{AQM}, \glspl{ANOVA}, \acrshort{ASN.1}. They should be automatically indexed as well.
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[height=5.1cm]{graphics/demo-graphic.pdf}
+	\caption{Example of an imported PDF graphic}
+	\label{figure:1}
+\end{figure}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Bib\TeX\ and Footnotes}
+
+Every thesis contains references. With Bib\TeX\footnote{\url{http://www.bibtex.org}} you can easily define them in one or more files and load them with \LaTeX\ and cite them at any time.\cite{exampleBook}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter*{Acknowledgments}
+
+If you want to acknowledge some people or projects, do it here.
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\printbibliography[heading=bibintoc]
+
+
+
+\end{document}

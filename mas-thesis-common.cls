@@ -63,13 +63,13 @@
 
 	\renewcommand{\@stringTitle}{Title}
 	\renewcommand{\@stringAuthor}{by:}
-	\renewcommand{\@stringMatrikelnumber}{Matrikel number:}
-	\renewcommand{\@stringDegree}{Seeked Major}
-	\renewcommand{\@stringDegreeCourse}{Major}
+	\renewcommand{\@stringMatrikelnumber}{Matriculation number:}
+	\renewcommand{\@stringDegree}{Desired degree}
+	\renewcommand{\@stringDegreeCourse}{Course of study}
 	\renewcommand{\@stringSupervisor}{Supervisor}
-	\renewcommand{\@stringReviewerA}{1st reviewer}
-	\renewcommand{\@stringReviewerB}{2nd reviewer}
-	\renewcommand{\@stringHandoverdate}{Handover date}
+	\renewcommand{\@stringReviewerA}{First reviewer}
+	\renewcommand{\@stringReviewerB}{Second reviewer}
+	\renewcommand{\@stringHandoverdate}{Date of submission}
 	\renewcommand{\@stringSemester}{Semester}
 \fi
 
@@ -116,9 +116,9 @@
 \newcommand{\eidesstattlicheErklaerung}{
     \thispagestyle{empty}
     Ich versichere an Eides statt durch meine Unterschrift, dass ich die vorstehende Arbeit selbst\"andig und ohne fremde Hilfe angefertigt und alle Stellen, die ich w\"ortlich oder ann\"ahernd  w\"ortlich  aus  Ver\"offentlichungen  entnommen  habe,  als  solche  kenntlich  gemacht  habe,  mich  auch  keiner  anderen  als  der  angegebenen  Literatur  oder  sonstiger Hilfsmittel bedient habe. Die Arbeit hat in dieser oder \"ahnlicher Form noch keiner anderen Pr\"ufungsbeh\"orde vorgelegen.
-    
+
     \vspace{1.5cm}
-    
+
     \noindent\makebox[2.5in]{\hrulefill}\\
     \small \@author, \@location, den \@handoverdate
 
@@ -150,7 +150,7 @@
 		\includegraphics[height=2cm]{graphics/mas-logo-grey.eps}
 	}
 }
-\DeclareOption{bachelorprojekt}{
+\DeclareOption{bachelorproject}{
 	\renewcommand{\@supervisorreviewer}{
 		\begin{tabular}{lp{8cm}}%\hline
 			\small \@stringSupervisor: & \small \@supervisor \\ %\hline
@@ -160,15 +160,15 @@
 			\small \@stringSemester: & \small \@semester \\
 		\end{tabular}
 	}
-	
-	\ifgerman	
+
+	\ifgerman
 		\renewcommand{\@arbeitstyp}{Bachelorprojekt}
 	\else
 		\renewcommand{\@arbeitstyp}{Bachelor Project}
 	\fi
 	\renewcommand{\thesection}{\arabic{section}}
 }
-\DeclareOption{bachelorarbeit}{
+\DeclareOption{bachelorthesis}{
 	\renewcommand{\@supervisorreviewer}{
 		\begin{tabular}{lp{8cm}}%\hline
 			\small \@stringReviewerA: &  \small \@reviewerA \\
@@ -177,15 +177,15 @@
 			\small \@stringSemester: & \small \@semester \\
 		\end{tabular}
 	}
-	
-	\ifgerman	
+
+	\ifgerman
 		\renewcommand{\@arbeitstyp}{Bachelorarbeit}
 	\else
 		\renewcommand{\@arbeitstyp}{Bachelor Thesis}
 	\fi
 	\renewcommand{\thesection}{\arabic{section}}
 }
-\DeclareOption{masterprojekt}{
+\DeclareOption{masterproject}{
 	\renewcommand{\@supervisorreviewer}{
 		\begin{tabular}{lp{8cm}}%\hline
 			\small \@stringSupervisor: & \small \@supervisor \\ %\hline
@@ -203,7 +203,7 @@
 	\fi
 	\renewcommand{\thesection}{\arabic{section}}
 }
-\DeclareOption{masterarbeit}{
+\DeclareOption{masterthesis}{
 	\renewcommand{\@supervisorreviewer}{
 		\begin{tabular}{lp{8cm}}%\hline
 			\small \@stringReviewerA: &  \small \@reviewerA \\
@@ -231,7 +231,7 @@
 
 	\renewcommand{\@arbeitstyp}{Dissertation}
 }
-\DeclareOption{seminararbeit}{
+\DeclareOption{seminarpaper}{
 	\renewcommand{\@supervisorreviewer}{
 		\begin{tabular}{lp{8cm}}%\hline
 			\small \@stringSupervisor: & \small \@supervisor \\ %\hline
@@ -242,10 +242,15 @@
 		\end{tabular}
 	}
 
-	\renewcommand{\@arbeitstyp}{Seminararbeit}
+	\ifgerman
+		\renewcommand{\@arbeitstyp}{Seminararbeit}
+	\else
+		\renewcommand{\@arbeitstyp}{Seminar Paper}
+	\fi
 	\renewcommand{\thesection}{\arabic{section}}
+
 }
-\DeclareOption{fallstudie}{
+\DeclareOption{casestudy}{
 	\renewcommand{\@supervisorreviewer}{
 		\begin{tabular}{lp{8cm}}%\hline
 			\small \@stringSupervisor: & \small \@supervisor \\ %\hline
@@ -255,8 +260,8 @@
 			\small \@stringSemester: & \small \@semester \\
 		\end{tabular}
 	}
-	
-	\ifgerman	
+
+	\ifgerman
 		\renewcommand{\@arbeitstyp}{Fallstudie}
 	\else
 		\renewcommand{\@arbeitstyp}{Case Study}
@@ -451,11 +456,6 @@
 \titlespacing*{\subsection}{0pt}{1.25\baselineskip}{1\baselineskip}
 \titlespacing*{\paragraph}{0pt}{1\baselineskip}{1\baselineskip}
 
-
-%% tocloft toc manipulations
-% specifically: smallcaps and dotted lines for sections
-\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
-\renewcommand{\cftsecfont}{\scshape}
 
 
 \deffootnote{0em}{0em}{\thefootnotemark\hspace*{.5em}}
