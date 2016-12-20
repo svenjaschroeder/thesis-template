@@ -113,7 +113,7 @@
 	\includegraphics[height=2cm]{graphics/mas-logo-cmyk.eps}
 }
 
-\newcommand{\eidesstattlicheErklaerung}{
+\newcommand{\affidavit}{
     \thispagestyle{empty}
     Ich versichere an Eides statt durch meine Unterschrift, dass ich die vorstehende Arbeit selbst\"andig und ohne fremde Hilfe angefertigt und alle Stellen, die ich w\"ortlich oder ann\"ahernd  w\"ortlich  aus  Ver\"offentlichungen  entnommen  habe,  als  solche  kenntlich  gemacht  habe,  mich  auch  keiner  anderen  als  der  angegebenen  Literatur  oder  sonstiger Hilfsmittel bedient habe. Die Arbeit hat in dieser oder \"ahnlicher Form noch keiner anderen Pr\"ufungsbeh\"orde vorgelegen.
 
