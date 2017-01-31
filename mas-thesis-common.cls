@@ -471,17 +471,20 @@
 
 	\begin{titlepage}
 
+
 	\@titlelogos
 
 	\begin{center}
 
 	\vskip 1.5cm
 
+	\linespread{1.6}\selectfont
+
 	{\Huge\bfseries\textsc{\@arbeitstyp}}\\[1.5cm]
 
 	{\@stringTitle\\[2mm]
 	\huge\bfseries\textsc{\centering\@title}}\\Vorgelegt der Fakultät für Wirtschaftswissenschaften\\der Universität Duisburg-Essen (Campus Essen)\\[2cm]
-
+	\linespread{1.05}\selectfont % reset linespread back to the document's default
 
 	{\@stringAuthor\\
 	\bfseries \@author}\\\@authoraddress\\\@stringMatrikelnumber~{\bfseries \@matrikelnumber}\\[3cm]
@@ -492,6 +495,7 @@
 	\end{center}
 	\end{titlepage}
 	\restoregeometry
+
 }
 
 \newcommand{\makelicensepageCCBYSA}{%
