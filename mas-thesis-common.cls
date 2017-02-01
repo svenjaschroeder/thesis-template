@@ -285,13 +285,12 @@
 	\RequirePackage{microtype}
 	\RequirePackage{amssymb}
 	\RequirePackage{mathtools}
-	\RequirePackage{unicode-math} % fixes math
-	\RequirePackage{lualatex-math} % fixes amsmath/mathtools ... for luatex
+	\RequirePackage{unicode-math}
+	\RequirePackage{lualatex-math}
 	\setmainfont{Linux Libertine O}
 	\setsansfont{Linux Biolinum O}
-	\setmathfont[math-style=ISO,bold-style=ISO,vargreek-shape=TeX,Ligatures=TeX]{TeX Gyre Pagella Math}
-
-	\RequirePackage{polyglossia} % babel replacement for use with fontspec
+	\setmathfont[math-style=ISO,bold-style=ISO,Ligatures=TeX]{TeX Gyre Pagella Math} % unicode-math dropped vargreek-shape=TeX
+	\RequirePackage{polyglossia}
 	\ifgerman
 		\setdefaultlanguage{german}
 		\selectlanguage{german}
@@ -311,10 +310,10 @@
 	\else
 		\RequirePackage[american]{babel}
 	\fi
-	\RequirePackage{mathtools} % instead of amsmath; amssymb and amsthm not included
+	\RequirePackage{mathtools}
 	\RequirePackage{amssymb}
 	\RequirePackage{microtype}
-	\microtypesetup{expansion=false}%
+	\microtypesetup{expansion=false}
 \fi
 
 \RequirePackage[hyphens]{url}
