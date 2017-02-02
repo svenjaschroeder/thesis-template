@@ -318,7 +318,7 @@
 
 \RequirePackage[hyphens]{url}
 \RequirePackage{scrhack} % fix komascript floattolist issues
-\RequirePackage[defernumbers=true, style=alphabetic, citestyle=alphabetic, firstinits=true, backend=biber, doi=true, url=true, block=ragged, maxnames=6]{biblatex} %
+\RequirePackage[defernumbers=true, style=alphabetic, citestyle=alphabetic, giveninits=true, backend=biber, doi=true, url=true, block=ragged, maxnames=6]{biblatex} %
 \RequirePackage{csquotes} % context sensitive quotations; especially for use with biblatex and biber
 \RequirePackage{listings} % ?
 \RequirePackage[scale=3]{ccicons} % creative commons icons
@@ -349,7 +349,6 @@
 \RequirePackage{booktabs} % \toprule and other table stuff
 \RequirePackage[titles]{tocloft} % toc style
 %\RequirePackage[disable]{easy-todo} % load after tocloft to avoid option clash, option [disable] to disable!
-\RequirePackage[a4paper]{geometry}
 \RequirePackage{titlesec}
 \RequirePackage{textcase} % for \MakeTextUppercase
 
@@ -493,8 +492,6 @@
 	%}
 	\end{center}
 	\end{titlepage}
-	\restoregeometry
-
 }
 
 \newcommand{\makelicensepageCCBYSA}{%
