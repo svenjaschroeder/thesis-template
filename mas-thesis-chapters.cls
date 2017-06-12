@@ -11,7 +11,7 @@
 % load base class
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\LoadClass[openright,titlepage,numbers=noenddot,cleardoublepage=empty,BCOR=5mm,a4paper,fontsize=11pt,twoside, DIV=calc]{scrreprt}
+\LoadClass[openright,titlepage,numbers=noenddot,cleardoublepage=empty,BCOR=5mm,a4paper,fontsize=12pt,twoside, DIV=calc]{scrreprt}
 
 \ProvidesClass{mas-thesis-chapters}[2015/08/28 Uni-DUE MAS thesis class]
 

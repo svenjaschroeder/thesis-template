@@ -11,7 +11,7 @@
 % load base class
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\LoadClass[titlepage,numbers=noenddot,cleardoublepage=empty,BCOR=5mm,a4paper,DIV=calc,fontsize=11pt,twoside]{scrartcl}
+\LoadClass[titlepage,numbers=noenddot,cleardoublepage=empty,BCOR=5mm,a4paper,DIV=calc,fontsize=12pt,twoside]{scrartcl}
 
 \ProvidesClass{mas-thesis-sections}[2016/12/15 Uni-DUE MAS thesis class]
 
