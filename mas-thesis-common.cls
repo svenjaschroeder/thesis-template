@@ -301,19 +301,7 @@
 		\setotherlanguage{german}
 	\fi
 \else
-	\RequirePackage[utf8]{inputenc}
-	\usepackage{libertine}
-	\usepackage[libertine]{newtxmath} % math font for libertine
-	\RequirePackage[T1]{fontenc}
-	\ifgerman
-		\RequirePackage[ngerman]{babel}
-	\else
-		\RequirePackage[american]{babel}
-	\fi
-	\RequirePackage{mathtools}
-	\RequirePackage{amssymb}
-	\RequirePackage{microtype}
-	\microtypesetup{expansion=false}
+	\ClassError{thesis-template}{Document class is intended to be used only with LuaLaTeX!}{This error cannot happen if you simply use latexmk instead of directly invoking LaTeX.}
 \fi
 
 \RequirePackage[hyphens]{url}
