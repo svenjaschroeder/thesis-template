@@ -3,33 +3,23 @@
 															     % masterthesis, bachelorthesis, dissertation
 															     % grey (use greyscale titlepage logo instead), english
 \usepackage{blindtext}
-
-\author{Max~Mustermann}						% ~ for nicer spaces
-\authoraddress{Musterstr.~90\\12345 Essen}
-\matrikelnumber{2251234}
-\title{Titel~der~Arbeit}
-\supervisor{Univ.-Prof.~Dipl.-Ing.~Dr.~Betreuer~Name}
-\reviewerA{Reviewer~A}
-\reviewerB{Reviewer~B}
-\degreecourse{Angewandte Informatik~---~Network Engineering}
-\location{Essen}
-\handoverdate{23.10.2016}
-\semester{Wintersemester~2016/2017}
+\RequirePackage[disable]{todonotes} % TODO Here the package TODO Notes can be adjusted
 
 %% load glossaries and acronyms
 \loadglsentries{acronyms.tex}
-
-
 
 %% load bibs
 \addbibresource{bibliography/bibliography.bib}
 %\addbibresource{bibliography/more-bibliography.bib}
 
+\input{components/info} % Title, author... information for the cover
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
 
-\maketitle				% Title Page
+%\maketitle				% Original MAS Title Page
+
+\input{components/cover.tex} % UNIVIE-Cover page
 
 %
 % An optional license. You can change the CC license in the mas-thesis-common.cls
